@@ -1,0 +1,43 @@
+/*** Variables ***/
+//$cs__color: #783DF4;
+
+$global__transition: .2s ease-out;
+//$global__font-family-base: 'Roboto', sans-serif;
+//$global__font-family-secondary: 'Lora', serif;
+
+
+@import "foundation-settings";
+
+
+
+/*** Variables / Vendor: Slick ***/
+//$slick-font-path: "../../fonts/slick/";
+//$slick-loader-path: "../../img/slick/";
+
+@import "../../node_modules/foundation-sites/scss/foundation";
+@include foundation-everything;
+
+@include foundation-global-styles;
+@include foundation-flex-grid;
+
+@include foundation-typography;
+@include foundation-visibility-classes;
+
+@import 'helpers/helpers';
+@import 'base/fonts';
+@import 'base/typography';
+@import 'base/base';
+
+//@import '../vendor/slick/slick';
+
+@import 'components/animations';
+@import 'components/forms';
+//@import 'components/popup';
+@import 'components/navigation';
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/blog";
+@import "layout/page";
+@import "layout/content";
+@import "layout/sections";

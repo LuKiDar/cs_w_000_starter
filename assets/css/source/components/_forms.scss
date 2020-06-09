@@ -1,0 +1,100 @@
+/**
+ * Buttons
+ */
+
+%btn {
+    border-width: 2px;
+    font-weight: $global-weight-normal;
+    letter-spacing: 0.5px;
+    line-height: rem-calc(21);
+    min-width: 100px;
+    text-transform: uppercase;
+
+    @include breakpoint(medium down) {}
+}
+.button {
+    @extend %btn;
+}
+
+
+/**
+ * Fields
+ */
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea,
+select {
+    border-bottom: 1px solid $medium-gray;
+    display: inline-block;
+    margin: 0 0 10px;
+    outline: none;
+
+    &[multiple] { height: auto; }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        -webkit-box-shadow: inset 0 0 0 50px $body-background;
+        box-shadow: inset 0 0 0 50px $body-background;
+        -webkit-text-fill-color: $input-color;
+    }
+    &:focus {}
+}
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'] {
+    height: auto;
+}
+[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0;
+    }
+}
+select {
+    //-webkit-appearance: none;
+    //-moz-appearance: none;
+    height: auto;
+
+    &:invalid { color: $input-placeholder-color; }
+    &[multiple] { background: transparent; }
+
+    option:not(:first-of-type) { color: $input-color; }
+}
+textarea {
+    border-radius: $input-radius;
+    height: 170px;
+    line-height: $global-lineheight;
+    padding: $input-padding;
+    resize: none;
+
+    &[rows] { height: 170px; }
+}

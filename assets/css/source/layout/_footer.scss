@@ -1,0 +1,11 @@
+/**
+ * Footer
+ */
+
+.cs__footer {
+    background: $secondary-color;
+    flex: 0 0 100%;
+    margin-top: auto; /* sticky footer */
+    padding: $medium-column-gutter 0;
+    width: 100%;
+}

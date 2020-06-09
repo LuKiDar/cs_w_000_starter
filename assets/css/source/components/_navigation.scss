@@ -1,0 +1,62 @@
+/**
+ * Navigation
+ */
+
+/*** Main menu ***/
+.main-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .menu-item {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 0;
+		
+        > a {
+            display: block;
+            
+            &:hover,
+            &:focus {}
+        }
+        &.current-menu-item { font-weight: $global-weight-bold; }
+    }
+}
+
+
+/*** Footer menu ***/
+.footer-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .menu-item {
+        > a {
+            display: inline-block;
+            
+            &:hover,
+            &:focus {}
+        }
+        &.current-menu-item { font-weight: $global-weight-bold; }
+    }
+}
+
+
+/*** Social networks menu ***/
+.cs__socials-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    a {
+        display: inline-block;
+        padding: 0 5px;
+      
+        &:hover,
+        &:focus {}
+    }
+}

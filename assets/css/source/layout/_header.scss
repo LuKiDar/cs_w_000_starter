@@ -1,0 +1,23 @@
+/**
+ * Header
+ */
+
+.cs__header {
+    background: $primary-color;
+    //height: $header__height;
+    left: 0;
+    padding: $medium-column-gutter/2 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+
+    @include breakpoint(medium down) {}
+
+    body.admin-bar & {
+        top: 32px;
+
+        @media screen and (max-width: 782px) { top: 46px; }
+        @media screen and (max-width: 600px) { top: 0; }
+    }
+}

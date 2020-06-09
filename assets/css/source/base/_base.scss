@@ -1,0 +1,51 @@
+/**
+ * Base 
+ */
+ 
+*::-webkit-media-controls-panel {
+    display: none!important;
+    -webkit-appearance: none;
+}
+*::--webkit-media-controls-play-button {
+    display: none!important;
+    -webkit-appearance: none;
+}
+*::-webkit-media-controls-start-playback-button {
+    display: none!important;
+    -webkit-appearance: none;
+}
+
+/*::selection {
+	background: $primary-color;
+	color: $white;
+}*/
+
+#wpadminbar * { min-width: 0; }
+html, body { height: 100%; }
+body {
+    overflow-x: hidden;
+    //padding-top: #{$header__height};
+    word-wrap: break-word;
+
+    * { outline: none; }
+    //&.menu-active { overflow: hidden; }
+}
+.cs__site {
+    display: flex;
+    flex-flow: column wrap;
+    //min-height: calc(100vh - #{$header__height});
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+.cs__page {
+    flex: 0 0 100%;
+    width: 100%;
+}
+.scrollbar-measure {
+    height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
+    width: 100px;
+}

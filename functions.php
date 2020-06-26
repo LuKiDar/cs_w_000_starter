@@ -24,6 +24,13 @@ if ( function_exists('add_theme_support') ){
 
     remove_image_size('1536x1536');
     remove_image_size('2048x2048');
+
+    // Add Custom logo support
+    add_theme_support( 'custom-logo', array(
+        'height'      => '200',
+        'flex-height' => true,
+        'flex-width'  => true,
+    ) );
 }
 
 function cswp_mime_types($mimes) {
@@ -161,9 +168,9 @@ function get_bg_srcset($image, $post_check, $viewWidth='full') {
 	Actions + Filters
 \*------------------------------------*/
 
-// Add Actions
+/*** Add Actions ***/
 
-// Remove Actions
+/*** Remove Actions ***/
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
 remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
 remove_action('wp_head', 'rsd_link'); // Display the link to the Really Simple Discovery service endpoint, EditURI link
@@ -172,15 +179,17 @@ remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
-// Add Filters
+/*** Add Filters ***/
 // add_filter('acf/settings/show_admin', '__return_false');//  Hide ACF field group menu item
-
 add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
 add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
+add_filter('get_custom_logo', function( $html ){ // Change custom logo class
+	return str_replace('custom-logo-link', 'cs__header__branding', $html );
+});
 
-// Remove Filters
+/*** Remove Filters ***/
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
 

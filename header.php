@@ -13,6 +13,23 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <!-- REMOVE AFTER DEVELOPING -->
+    <style type="text/css">
+        #tmp_view {
+            background: #eee;
+            border: 1px solid #ddd;
+            color: #ccc;
+            margin: 0 auto;
+            padding: 5px;
+            text-align: center;
+            max-width: 1198px;
+            min-width: 930px;
+            width: 100%;
+        }
+    </style>
+    <div id="tmp_view"><?php global $template; print_r($template); ?></div>
+    <!-- /REMOVE AFTER DEVELOPING -->
+	
 	<!-- Page -->
     <div id="page" class="cs__site">
 		<header id="header-wrapper" class="cs__header" role="banner">
@@ -25,9 +42,13 @@
                     </button>
                 </div>
                 <div class="column">
-                    <a class="cs__header__branding" href="<?php echo get_home_url(); ?>">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/logo.png" alt="" />
-                    </a>
+                    <?php if ( !has_custom_logo() ) { ?>
+                        <a class="cs__header__branding" href="<?php echo get_home_url(); ?>">
+                            <img src="<?php bloginfo('template_url'); ?>/assets/img/logo.svg" alt="" />
+                        </a>
+                    <?php } else { ?>
+                        <?php the_custom_logo(); ?>
+                    <?php } ?>
                 </div>
                 <div class="column">
                     <?php wp_nav_menu(array(

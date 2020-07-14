@@ -31,14 +31,16 @@ if ( function_exists('add_theme_support') ){
         'flex-height' => true,
         'flex-width'  => true,
     ) );
+
+    // Add WooCommerce support
+    //add_theme_support( 'woocommerce' );
 }
 
-function cswp_mime_types($mimes) {
+add_filter('upload_mimes', 'cs__mime_types');
+function cs__mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
-
-add_filter('upload_mimes', 'cswp_mime_types');
 
 // Register Navigation
 register_nav_menus(array(
@@ -47,8 +49,8 @@ register_nav_menus(array(
 
 
 /*** Disable emoji ***/
-function disable_wp_emojicons() {
-
+add_action( 'init', 'cs__disable_wp_emojicons' );
+function cs__disable_wp_emojicons() {
     // all actions related to emojis
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -59,11 +61,10 @@ function disable_wp_emojicons() {
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 
     // filter to remove TinyMCE emojis
-    add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+    add_filter( 'tiny_mce_plugins', 'cs__disable_emojicons_tinymce' );
 }
-add_action( 'init', 'disable_wp_emojicons' );
 
-function disable_emojicons_tinymce( $plugins ) {
+function cs__disable_emojicons_tinymce( $plugins ) {
     if ( is_array( $plugins ) ) {
         return array_diff( $plugins, array( 'wpemoji' ) );
     } else {
@@ -126,7 +127,7 @@ add_action('init', function () {
    * $post_check -- set true, if it's post id
    * $size -- size of image to get
  ***/
-function get_image_url($cur_id, $post_check, $size) {
+function cs__get_image_url($cur_id, $post_check, $size) {
     if($post_check == true) { $cur_id = get_post_thumbnail_id($cur_id); }    
     $image_url = wp_get_attachment_image_src($cur_id, $size);
     return $image_url;
@@ -134,7 +135,7 @@ function get_image_url($cur_id, $post_check, $size) {
 
 
 /*** Custom srcset for background image ***/
-function get_bg_srcset($image, $post_check, $viewWidth='full') {
+function cs__get_bg_srcset($image, $post_check, $viewWidth='full') {
     $result_image = 'bg-srcset="';
     if ( is_array($image)==true && $post_check==false ){
         
@@ -185,8 +186,10 @@ add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sideba
 add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
+add_filter('excerpt_length', function(){ return 30; }); // Change Excerpt length
+add_filter('excerpt_more', function($more){ return '...'; }); // Change Excerpt "read more" string
 add_filter('get_custom_logo', function( $html ){ // Change custom logo class
-	return str_replace('custom-logo-link', 'cs__header__branding', $html );
+	return str_replace('custom-logo-link', 'cs__branding', $html );
 });
 
 /*** Remove Filters ***/

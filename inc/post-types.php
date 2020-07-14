@@ -3,8 +3,8 @@
 	Register custom post types
 \*------------------------------------*/
 
-add_action('init', 'cswp_register_post_types');
-function cswp_register_post_types() {
+add_action('init', 'cs__register_post_types');
+function cs__register_post_types() {
     $default_cpt_labels = array(
         'add_new'               => __( 'Add new', CSWP ),
         'add_new_item'          => __( 'Add new post', CSWP ),
@@ -82,8 +82,8 @@ function cswp_register_post_types() {
 /*------------------------------------*\
 	Register custom taxonomies
 \*------------------------------------*/
-add_action( 'init', 'cswp_register_taxonomies' );
-function cswp_register_taxonomies() {
+add_action( 'init', 'cs__register_taxonomies' );
+function cs__register_taxonomies() {
 
     /**
      * Taxonomy: example

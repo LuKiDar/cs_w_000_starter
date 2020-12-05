@@ -2,15 +2,13 @@
  * Animations
  */
 
-
 /*** Loader spinner ***/
-$spinnerAnimation: 0.75s;
-.loader-spinner {
-    animation: cs__spin $spinnerAnimation infinite linear;
+.cs__spinner {
+    animation: cs__spin $spinner_speed infinite linear;
     background: transparent;
     border: 2px solid transparent;
     border-radius: 50%;
-    border-top-color: $primary-color;
+    border-top-color: $medium_gray;
     display: inline-block;
     height: 30px;
     left: 50%;
@@ -22,7 +20,7 @@ $spinnerAnimation: 0.75s;
     z-index: 30;
 
     &::before {
-        animation: cs__spin $spinnerAnimation*2 infinite ease;
+        animation: cs__spin $spinner_speed*2 infinite ease;
         border: inherit;
         border-radius: inherit;
         content: '';
@@ -40,32 +38,30 @@ $spinnerAnimation: 0.75s;
     to { transform: rotate(360deg); }
 }
 
+
 /*** Animated blocks ***/
-$animatedBlockSpeed: 0.8s;
-$animatedBlockDelay: 0.2s;
-$animatedBlockShift: 30px;
-.animated-block {
+.cs__animated-block {
     backface-visibility: visible;
     opacity: 0;
-    transition: opacity $animatedBlockSpeed ease-in-out, transform $animatedBlockSpeed ease-in-out;
+    transition: opacity $animatedBlock_speed ease-in-out, transform $animatedBlock_speed ease-in-out;
     transition-delay: 0s;
     
-    &.ab-2 { transition-delay: $animatedBlockDelay; }
-    &.ab-3 { transition-delay: $animatedBlockDelay*2; }
-    &.ab-4 { transition-delay: $animatedBlockDelay*3; }
-    &.ab-5 { transition-delay: $animatedBlockDelay*4; }
-    &.ab-6 { transition-delay: $animatedBlockDelay*5; }
-    &.ab-7 { transition-delay: $animatedBlockDelay*6; }
-    &.ab-slide-bottom { transform: translate(0, $animatedBlockShift); }
-    &.ab-slide-left { transform: translate(-$animatedBlockShift, 0); }
-    &.ab-slide-right { transform: translate($animatedBlockShift, 0); }
-    &.ab-slide-top { transform: translate(0, -$animatedBlockShift); }
-    &.ab-visible {
+    &--2 { transition-delay: $animatedBlock_delay; }
+    &--3 { transition-delay: $animatedBlock_delay*2; }
+    &--4 { transition-delay: $animatedBlock_delay*3; }
+    &--5 { transition-delay: $animatedBlock_delay*4; }
+    &--6 { transition-delay: $animatedBlock_delay*5; }
+    &--7 { transition-delay: $animatedBlock_delay*6; }
+    &--slide-bottom { transform: translate(0, $animatedBlock_shift); }
+    &--slide-left { transform: translate(-$animatedBlock_shift, 0); }
+    &--slide-right { transform: translate($animatedBlock_shift, 0); }
+    &--slide-top { transform: translate(0, -$animatedBlock_shift); }
+    &--visible {
         opacity: 1;
 
-        &.ab-slide-bottom,
-        &.ab-left,
-        &.ab-right,
-        &.ab-slide-top {transform: translate(0, 0); }
+        &--slide-bottom,
+        &--left,
+        &--right,
+        &--slide-top {transform: translate(0, 0); }
     }
 }

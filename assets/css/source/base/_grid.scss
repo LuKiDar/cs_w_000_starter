@@ -1,0 +1,70 @@
+/**
+ * Grid
+ */
+
+.cs__container {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $containerWidth;
+}
+.cs__col {
+    flex: 1 0 auto;
+    max-width: 100%;
+    padding-left: $gutter/2;
+    padding-right: $gutter/2;
+
+    // .col--*
+    @for $i from 1 through $columns {
+        &--#{$i} {
+            flex: 0 0 (100%/$columns*$i);
+            max-width: (100%/$columns*$i);
+        }
+    }
+    // .col--xl-*
+    @include mediaBetween(lg,xl){
+        @for $i from 1 through $columns {
+            &--xl-#{$i} {
+                flex: 0 0 (100%/$columns*$i);
+                max-width: (100%/$columns*$i);
+            }
+        }
+    }
+    // .col--lg-*
+    @include mediaBetween(md,lg){
+        @for $i from 1 through $columns {
+            &--lg-#{$i} {
+                flex: 0 0 (100%/$columns*$i);
+                max-width: (100%/$columns*$i);
+            }
+        }
+    }
+    // .col--md-*
+    @include mediaBetween(sm,md){
+        @for $i from 1 through $columns {
+            &--md-#{$i} {
+                flex: 0 0 (100%/$columns*$i);
+                max-width: (100%/$columns*$i);
+            }
+        }
+    }
+    // .col--sm-*
+    @include mediaBetween(xs,sm){
+        @for $i from 1 through $columns {
+            &--sm-#{$i} {
+                flex: 0 0 (100%/$columns*$i);
+                max-width: (100%/$columns*$i);
+            }
+        }
+    }
+    // .col--xs-*
+    @include mediaMaxWidth(xs){
+        @for $i from 1 through $columns {
+            &--xs-#{$i} {
+                flex: 0 0 (100%/$columns*$i);
+                max-width: (100%/$columns*$i);
+            }
+        }
+    }
+}

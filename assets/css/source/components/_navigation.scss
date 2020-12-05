@@ -3,7 +3,7 @@
  */
 
 /*** Main menu ***/
-.main-menu {
+.cs__main-menu {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -19,13 +19,13 @@
             &:hover,
             &:focus {}
         }
-        &.current-menu-item { font-weight: $global-weight-bold; }
+        &.current-menu-item { font-weight: $text-bold; }
     }
 }
 
 
 /*** Footer menu ***/
-.footer-menu {
+.cs__footer-menu {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -37,7 +37,7 @@
             &:hover,
             &:focus {}
         }
-        &.current-menu-item { font-weight: $global-weight-bold; }
+        &.current-menu-item { font-weight: $text-bold; }
     }
 }
 

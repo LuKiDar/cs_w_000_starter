@@ -34,6 +34,9 @@ if ( function_exists('add_theme_support') ){
 
     // Add WooCommerce support
     //add_theme_support( 'woocommerce' );
+
+    // Enable translations
+    // load_theme_textdomain( 'cswp', get_template_directory() . '/languages' );
 }
 
 add_filter('upload_mimes', 'cs__mime_types');
@@ -189,7 +192,12 @@ add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed i
 add_filter('excerpt_length', function(){ return 30; }); // Change Excerpt length
 add_filter('excerpt_more', function($more){ return '...'; }); // Change Excerpt "read more" string
 add_filter('get_custom_logo', function( $html ){ // Change custom logo class
-	return str_replace('custom-logo-link', 'cs__branding', $html );
+	$html = str_replace('custom-logo-link', 'cs__logo', $html );
+	$html = str_replace('custom-logo', 'cs__logo__image', $html );
+	return $html;
+});
+add_filter('intermediate_image_sizes', function($sizes){ // Remove image size "medium_large"
+    return array_diff($sizes, ['medium_large']);
 });
 
 /*** Remove Filters ***/

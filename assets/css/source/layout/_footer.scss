@@ -3,9 +3,8 @@
  */
 
 .cs__footer {
-    background: $secondary-color;
-    flex: 0 0 100%;
+    background: $light_gray;
     margin-top: auto; /* sticky footer */
-    padding: $medium-column-gutter 0;
+    padding: $gutter 0;
     width: 100%;
 }

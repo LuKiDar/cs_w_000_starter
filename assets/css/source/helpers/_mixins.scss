@@ -1,0 +1,55 @@
+// ************ Media Queries ************
+@mixin mediaMinWidth($minWidth){
+    @if type-of($minWidth) == string {
+        $minWidth: map-get($breakpoints, $minWidth);
+    }
+
+    @media screen and (min-width: #{$minWidth}px){
+        @content;
+    }
+}
+@mixin mediaMaxWidth($maxWidth){
+    @if type-of($maxWidth) == string {
+        $maxWidth: map-get($breakpoints, $maxWidth) - 1;
+    }
+
+    @media screen and (max-width: #{$maxWidth}px){
+        @content;
+    }
+}
+@mixin mediaBetween($minWidth, $maxWidth){
+    @if type-of($minWidth) == string {
+        $minWidth: map-get($breakpoints, $minWidth);
+    }
+    @if type-of($maxWidth) == string {
+        $maxWidth: map-get($breakpoints, $maxWidth) - 1;
+    }
+
+    @media screen and (min-width: #{$minWidth}px) and (max-width: #{$maxWidth}px){
+        @content;
+    }
+}
+
+
+// ************ Get styles ************
+@mixin getStyles($styles, $screen:''){
+    @if $screen=='xl' or $screen=='lg' or $screen=='md' or $screen=='sm' or $screen=='xs'{
+        @if map-has-key($styles, $screen){
+            @include mediaMaxWidth($screen){
+                @each $name, $value in map-get($styles, $screen){
+                    #{$name}: #{$value};
+                }
+            }
+        }
+    } @else if $screen=='default'{
+        @if map-has-key($styles, $screen){
+            @each $name, $value in map-get($styles, $screen){
+                #{$name}: #{$value};
+            }
+        }
+    } @else {
+        @each $name, $value in $styles{
+            #{$name}: #{$value};
+        }
+    }
+}

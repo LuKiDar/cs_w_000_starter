@@ -15,34 +15,51 @@
     -webkit-appearance: none;
 }
 
-/*::selection {
-	background: $primary-color;
+::selection {
+	background: $medium_gray;
 	color: $white;
-}*/
+}
 
-#wpadminbar * { min-width: 0; }
-html, body { height: 100%; }
+#wpadminbar * {
+    min-width: 0;
+}
+html {
+    color: $general_color;
+    font-family: $general_font;
+    font-size: 16px;
+    height: 100%;
+    line-height: $general_lineHeight;
+
+    @include mediaMaxWidth($mobileBreakpoint){
+        font-size: 14px;
+    }
+}
 body {
     overflow-x: hidden;
-    //padding-top: #{$header__height};
     word-wrap: break-word;
 
     * { outline: none; }
-    //&.menu-active { overflow: hidden; }
+    // &.menu-active { overflow: hidden; }
 }
 .cs__site {
     display: flex;
-    flex-flow: column wrap;
-    //min-height: calc(100vh - #{$header__height});
+    flex-flow: column nowrap;
     min-height: 100vh;
     overflow-x: hidden;
-    position: relative;
+    padding-top: map-get($header_height,'default');
+
+    @include mediaMaxWidth(md){
+        padding-top: map-get($header_height,'md');
+    }
+
+    body.admin-bar & {
+        min-height: calc(100vh - 32px);
+
+        @media screen and (max-width: 782px) { min-height: calc(100vh - 46px); }
+        @media screen and (max-width: 600px) { min-height: 100vh; }
+    }
 }
-.cs__page {
-    flex: 0 0 100%;
-    width: 100%;
-}
-.scrollbar-measure {
+.cs__scrollbar-measure {
     height: 100px;
     overflow: scroll;
     position: absolute;

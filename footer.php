@@ -1,16 +1,17 @@
-    </main>
+        </main>
 
-    <footer id="footer-wrapper" class="cs__footer" role="contentinfo">
-        <div class="row">
-            <div class="column">
-                <?php wp_nav_menu(array(
-                    'menu' => 'main-manu',
-                    'menu_class' => 'footer-menu',
-                    'container' => false
-                )); ?>
+        <footer id="footer" class="cs__footer" role="contentinfo">
+            <div class="cs__container">
+                <div class="cs__col">
+                    <?php wp_nav_menu(array(
+                        'menu' => 'main-manu',
+                        'menu_class' => 'cs__footer-menu',
+                        'container' => false
+                    )); ?>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <?php wp_footer(); ?>
 </body>

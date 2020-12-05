@@ -1,0 +1,27 @@
+/*** ACF ***/
+body .acf {
+    &-postbox>.inside {
+        background: #f9f9f9;
+    }
+    &-flexible-content .layout {
+        transition: margin .2s ease-out;
+
+        &:not(.-collapsed):not(:first-child) {
+            margin: 50px 0 0;
+        }
+    }
+    &-repeater {
+        >table>thead>tr>th {
+            font-weight: 700;
+        }
+        .acf-row:nth-child(even) {
+            > .acf-row-handle {
+                background-color: #ececec;
+            }
+            > .acf-fields,
+            > .acf-field {
+                background-color: #fbfbfb;
+            }
+        }
+    }
+}

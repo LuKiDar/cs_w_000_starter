@@ -1,6 +1,0 @@
-.acf-repeater .acf-row:nth-child(even) > .acf-row-handle {
-    background-color: #ececec;
-}
-.acf-repeater .acf-row:nth-child(even) > .acf-fields {
-    background-color: #fbfbfb;
-}

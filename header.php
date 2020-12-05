@@ -32,25 +32,25 @@
 	
 	<!-- Page -->
     <div id="page" class="cs__site">
-		<header id="header-wrapper" class="cs__header" role="banner">
-            <div class="row">
-                <div class="column">
-                    <button class="cs__header__navbar-toggle" type="button">
-                        <i></i>
-                        <i></i>
-                        <i></i>
+		<header id="header" class="cs__header" role="banner">
+            <div class="cs__header__container cs__container">
+                <div class="cs__header__toggle cs__col">
+                    <button id="toggle" class="cs__toggle" type="button">
+                        <i class="cs__toggle__stick"></i>
                     </button>
                 </div>
-                <div class="column">
+
+                <div class="cs__header__logo cs__col">
                     <?php if ( !has_custom_logo() ) { ?>
-                        <a class="cs__header__branding" href="<?php echo get_home_url(); ?>">
+                        <a class="cs__logo" href="<?php echo get_home_url(); ?>">
                             <img src="<?php bloginfo('template_url'); ?>/assets/img/logo.svg" alt="" />
                         </a>
                     <?php } else { ?>
                         <?php the_custom_logo(); ?>
                     <?php } ?>
                 </div>
-                <div class="column">
+                
+                <div class="cs__header__menu cs__col">
                     <?php wp_nav_menu(array(
                         'container' => false,
                         'menu_class' => 'cs__main-menu',
@@ -61,4 +61,4 @@
         </header>
 
 		<!-- Container -->
-		<main id="main" class="cs__page-wrap" role="main">
+		<main id="main" class="cs__main" role="main">

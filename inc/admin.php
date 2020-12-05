@@ -39,9 +39,10 @@ function cs__hide_editor_for_pages() {
     $template_file = get_post_meta($post_id, '_wp_page_template', true);
 
     $templates_array = array(
-        'templates/tmpl-home.php',
+        'templates/tmpl-contacts.php',
     );
-     
+    
+    // To disable for all pages: get_post_type($post_id)==='page'
     if ( in_array($template_file, $templates_array) || $post_id==get_option('page_on_front') ){
         remove_post_type_support('page', 'editor');
     }

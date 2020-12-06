@@ -40,7 +40,7 @@
                 <div class="cs__header__logo cs__col">
                     <?php if ( !has_custom_logo() ) { ?>
                         <a class="cs__logo" href="<?php echo get_home_url(); ?>">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/logo.svg" alt="" />
+                            <img src="<?php bloginfo('template_url'); ?>/assets/img/logo.png" alt="" />
                         </a>
                     <?php } else { ?>
                         <?php the_custom_logo(); ?>

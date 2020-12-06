@@ -1,5 +1,5 @@
 // ************ Grid and breakpoints ************
-$containerWidth: 1100px;
+$containerWidth: 1230px;
 $gutter: 30px;
 $columns: 12;
 
@@ -18,11 +18,16 @@ $global_transition: 0.2s ease-in-out;
 
 
 // ************ Colors ************
-$white: #fff;
-$black: #000;
-$light_gray: #D9D9D9;
-$medium_gray: #A9A5A9;
-$dark_gray: #0e0b0b;
+$white: #fefefe;
+$black: #323133;
+$light_gray: #F5F7FA;
+$medium_gray: #CCD1D9;
+$dark_gray: #434A54;
+
+// Functional colors
+$focus: #0072C5;
+$success: #009F53;
+$error: #E2001B;
 
 
 // ************ Typography *************
@@ -30,7 +35,9 @@ $general_font: 'Open Sans', sans-serif;
 $general_color: $black;
 $general_lineHeight: 1.5;
 $general_margin: 1rem;
+
 $general_borderColor: darken($light_gray, 5%);
+
 $general_linkColor: $dark_gray;
 $general_linkColorHover: $black;
 
@@ -89,5 +96,10 @@ $animatedBlock_shift: 30px;
 // Header
 $header_height: (
     default: 80px,
-    md: 70px
+    $mobileBreakpoint: 70px
 );
+$header_logoWidth: (
+    default: 240px,
+    xs: 200px
+);
+$header_menuTransition: .4s;

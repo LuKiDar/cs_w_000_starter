@@ -105,7 +105,10 @@
                     files: [
                         '<%= jshint.all %>'
                     ],
-                    tasks: ['jshint', 'concat', 'uglify']
+                    tasks: ['jshint', 'concat', 'uglify'],
+                    options: {
+                        livereload: true,
+                    }
                 },
                 css: {
                     files: [
@@ -116,7 +119,16 @@
                         'css/vendor/*',
                         'css/vendor/**/*'
                     ],
-                    tasks: ['sass', 'postcss']
+                    tasks: ['sass', 'postcss'],
+                    options: {
+                        livereload: true,
+                    }
+                },
+                php: {
+                    files: ['../*.php', '../**/*.php'],
+                    options: {
+                        livereload: true
+                    }
                 }
             }
 

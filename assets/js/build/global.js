@@ -1,0 +1,1 @@
+!function(){"use strict";document.addEventListener("DOMContentLoaded",function(t){document.getElementById("toggle").addEventListener("click",function(){document.body.classList.toggle("menu-active")})})}(),function(){"use strict";document.addEventListener("DOMContentLoaded",function(t){})}();

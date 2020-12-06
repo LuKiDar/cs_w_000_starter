@@ -8,6 +8,69 @@
     margin-left: auto;
     margin-right: auto;
     max-width: $containerWidth;
+
+    @include mediaMinWidth($mobileBreakpoint){
+        padding-left: $gutter/2;
+        padding-right: $gutter/2;
+    }
+
+    & & {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    // .cs__container--*
+    @for $i from 1 through $columns {
+        &--#{$i} > .cs__col {
+            flex: 0 0 (100%/$i);
+            max-width: (100%/$i);
+        }
+    }
+    // .cs__container--xl-*
+    @include mediaBetween(lg,xl){
+        @for $i from 1 through $columns {
+            &--xl-#{$i} > .cs__col {
+                flex: 0 0 (100%/$i);
+                max-width: (100%/$i);
+            }
+        }
+    }
+    // .cs__container--lg-*
+    @include mediaBetween(md,lg){
+        @for $i from 1 through $columns {
+            &--lg-#{$i} > .cs__col {
+                flex: 0 0 (100%/$i);
+                max-width: (100%/$i);
+            }
+        }
+    }
+    // .cs__container--md-*
+    @include mediaBetween(sm,md){
+        @for $i from 1 through $columns {
+            &--md-#{$i} > .cs__col {
+                flex: 0 0 (100%/$i);
+                max-width: (100%/$i);
+            }
+        }
+    }
+    // .cs__container--sm-*
+    @include mediaBetween(xs,sm){
+        @for $i from 1 through $columns {
+            &--sm-#{$i} > .cs__col {
+                flex: 0 0 (100%/$i);
+                max-width: (100%/$i);
+            }
+        }
+    }
+    // .cs__container--xs-*
+    @include mediaMaxWidth(xs){
+        @for $i from 1 through $columns {
+            &--xs-#{$i} > .cs__col {
+                flex: 0 0 (100%/$i);
+                max-width: (100%/$i);
+            }
+        }
+    }
 }
 .cs__col {
     flex: 1 0 auto;
@@ -15,14 +78,14 @@
     padding-left: $gutter/2;
     padding-right: $gutter/2;
 
-    // .col--*
+    // .cs__col--*
     @for $i from 1 through $columns {
         &--#{$i} {
             flex: 0 0 (100%/$columns*$i);
             max-width: (100%/$columns*$i);
         }
     }
-    // .col--xl-*
+    // .cs__col--xl-*
     @include mediaBetween(lg,xl){
         @for $i from 1 through $columns {
             &--xl-#{$i} {
@@ -31,7 +94,7 @@
             }
         }
     }
-    // .col--lg-*
+    // .cs__col--lg-*
     @include mediaBetween(md,lg){
         @for $i from 1 through $columns {
             &--lg-#{$i} {
@@ -40,7 +103,7 @@
             }
         }
     }
-    // .col--md-*
+    // .cs__col--md-*
     @include mediaBetween(sm,md){
         @for $i from 1 through $columns {
             &--md-#{$i} {
@@ -49,7 +112,7 @@
             }
         }
     }
-    // .col--sm-*
+    // .cs__col--sm-*
     @include mediaBetween(xs,sm){
         @for $i from 1 through $columns {
             &--sm-#{$i} {
@@ -58,7 +121,7 @@
             }
         }
     }
-    // .col--xs-*
+    // .cs__col--xs-*
     @include mediaMaxWidth(xs){
         @for $i from 1 through $columns {
             &--xs-#{$i} {

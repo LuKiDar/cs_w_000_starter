@@ -8,18 +8,82 @@
     margin: 0;
     padding: 0;
 
-    .menu-item {
-        display: inline-block;
-        margin: 0 10px;
-        padding: 0;
-		
-        > a {
-            display: block;
-            
-            &:hover,
-            &:focus {}
+    @include mediaMinWidth($mobileBreakpoint){
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        height: inherit;
+    }
+    @include mediaMaxWidth($mobileBreakpoint){
+        padding: 35px 0;
+        text-align: center;
+    }
+
+    > .menu-item {
+        position: relative;
+        
+        @include mediaMinWidth(lg){
+            padding: 0 30px;
         }
-        &.current-menu-item { font-weight: $text-bold; }
+        @include mediaBetween($mobileBreakpoint, lg) {
+            padding: 0 15px;
+        }
+        @include mediaMinWidth($mobileBreakpoint){
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            height: inherit;
+        }
+        @include mediaMaxWidth($mobileBreakpoint){
+            padding: 10px 0;
+        }
+
+        a {
+            color: $general_color;
+            text-decoration: none;
+
+            &:hover,
+            &:focus {
+                @include mediaMinWidth($mobileBreakpoint){
+                    color: $general_linkColorHover;
+                }
+            }
+        }
+        > .sub-menu {
+            list-style: none;
+            margin: 0;
+
+            @include mediaMinWidth($mobileBreakpoint){
+                background: $white;
+                border-top: 1px solid $general_borderColor;
+                display: none;
+                left: 50%;
+                padding: $gutter;
+                position: absolute;
+                top: 100%;
+                transform: translateX(-50%);
+                transition: opacity $global_transition;
+                width: #{$gutter*2 + 200px};
+                z-index: -1;
+            }
+            @include mediaMaxWidth($mobileBreakpoint){
+                display: none;
+            }
+
+            .sub-menu {
+                display: none;
+            }
+        }
+        
+        &.menu-item-has-children {
+            &:hover {
+                > .sub-menu {
+                    @include mediaMinWidth($mobileBreakpoint){
+                        display: block;
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -53,3 +53,11 @@
         }
     }
 }
+
+@mixin getStylesBreakpoints($styles){
+    @if type_of($styles)=='map' {
+        @each $itemScreen, $itemStyles in $styles{
+            @include getStyles($itemStyles, '$itemScreen');
+        }
+    }
+}

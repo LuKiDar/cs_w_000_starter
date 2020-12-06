@@ -89,26 +89,26 @@ h3,.h3,
 h4,.h4,
 h5,.h5,
 h6,.h6 {
-    font-weight: 700;
+    font-weight: $text-bold;
     margin: 0 0 $general_margin;
 }
 h1,.h1 {
-    @include getStyles($h1);
+    @include getStylesBreakpoints($h1);
 }
 h2,.h2 {
-    @include getStyles($h2);
+    @include getStylesBreakpoints($h2);
 }
 h3,.h3 {
-    @include getStyles($h3);
+    @include getStylesBreakpoints($h3);
 }
 h4,.h4 {
-    @include getStyles($h4);
+    @include getStylesBreakpoints($h4);
 }
 h5,.h5 {
-    @include getStyles($h5);
+    @include getStylesBreakpoints($h5);
 }
 h6,.h6 {
-    @include getStyles($h6);
+    @include getStylesBreakpoints($h6);
 }
 
 

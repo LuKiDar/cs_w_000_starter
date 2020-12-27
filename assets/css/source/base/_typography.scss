@@ -22,10 +22,11 @@ a {
         &:focus {
             @include mediaMinWidth($mobileBreakpoint){
                 color: $general_linkColorHover;
+                text-decoration: none;
             }
         }
     }
-    &.builtin {
+    &.cs__builtin {
         color: inherit;
         text-decoration: none;
 
@@ -45,18 +46,12 @@ hr {
 }
 code,
 kbd {
+    background-color: rgba($focus, 0.05);
     border: none;
     border-radius: 0;
+    color: $focus;
     display: inline;
     padding: 1px 4px;
-}
-code {
-    background-color: rgba($medium_gray, 0.05);
-    color: $medium_gray;
-}
-kbd {
-    background-color: rgba($dark_gray, 0.05);
-    color: $dark_gray;
 }
 pre {
     color: $black;
@@ -68,7 +63,8 @@ pre {
 }
 q { quotes: '“' '”'; }
 mark {
-    background: rgba($medium_gray, .5);
+    background: $dark_gray;
+    color: $white;
     padding: 1px 4px;
 }
 address {
@@ -80,6 +76,35 @@ blockquote {
 }
 figure {
     margin: 0 0 $general_margin;
+}
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+
+    &:focus {
+        background-color: #eee;
+        clip: auto !important;
+        clip-path: none;
+        color: #444;
+        display: block;
+        font-size: 1em;
+        height: auto;
+        left: 5px;
+        line-height: normal;
+        padding: 15px 23px 14px;
+        text-decoration: none;
+        top: 5px;
+        width: auto;
+        z-index: 100000; /* Above WP toolbar. */
+    }
 }
 
 /*** Headings ***/
@@ -117,7 +142,7 @@ ol, ul {
     color: inherit;
     margin-bottom: $general_margin;
     margin-top: $general_margin;
-    padding: 0 0 0 $general_margin*2;
+    padding: 0 0 0 1.25em;
     
     ol, ul {
         font-size: inherit;

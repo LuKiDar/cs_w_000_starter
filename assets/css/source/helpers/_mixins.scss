@@ -33,31 +33,32 @@
 
 // ************ Get styles ************
 @mixin getStyles($styles, $screen:''){
-    @if $screen=='xl' or $screen=='lg' or $screen=='md' or $screen=='sm' or $screen=='xs'{
-        @if map-has-key($styles, $screen){
-            @include mediaMaxWidth($screen){
-                @each $name, $value in map-get($styles, $screen){
-                    #{$name}: #{$value};
-                }
-            }
-        }
-    } @else if $screen=='default'{
-        @if map-has-key($styles, $screen){
-            @each $name, $value in map-get($styles, $screen){
-                #{$name}: #{$value};
-            }
-        }
-    } @else {
-        @each $name, $value in $styles{
-            #{$name}: #{$value};
-        }
+    @each $name, $value in $styles{
+        #{$name}: #{$value};
     }
 }
 
 @mixin getStylesBreakpoints($styles){
     @if type_of($styles)=='map' {
         @each $itemScreen, $itemStyles in $styles{
-            @include getStyles($itemStyles, '$itemScreen');
+            @if $itemScreen=='xl' or $itemScreen=='lg' or $itemScreen=='md' or $itemScreen=='sm' or $itemScreen=='xs'{
+                @include mediaMaxWidth($itemScreen){
+                    @include getStyles($itemStyles, $itemScreen);
+                }
+            } @else if $itemScreen=='default'{
+                @include getStyles($itemStyles, $itemScreen);
+            }
         }
     }
+}
+
+
+
+// ************ Placeholder ************
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
 }

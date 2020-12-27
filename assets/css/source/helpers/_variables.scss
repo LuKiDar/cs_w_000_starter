@@ -83,6 +83,9 @@ $h6: (
 $small: (
     'font-size': 0.875rem
 );
+$tiny: (
+    'font-size': 0.75rem
+);
 
 
 // ************ Animations *************
@@ -99,7 +102,9 @@ $header_height: (
     $mobileBreakpoint: 70px
 );
 $header_logoWidth: (
-    default: 240px,
-    xs: 200px
+    default: 275px,
+    $mobileBreakpoint: 200px,
+    xs: 170px
 );
+$header_boxShadow: 0px 4px 16px rgba(2, 82, 140, 0.1);
 $header_menuTransition: .4s;

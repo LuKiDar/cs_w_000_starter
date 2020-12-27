@@ -39,41 +39,54 @@ a {
     }
 }
 
-/*
+
+/*** Headings ***/
 h1, h2, h3, h4, h5, h6 {
-    margin: 15px 0;
-}
-h1, h2, h3, h4, h5 {
-    font-family: 'Navigo', sans-serif;
-    font-weight: 700;
+    font-weight: $text-bold;
+    margin: 0 0 $general_margin;
 }
 h1 {
-    font-size: 120px;
-    line-height: 1.03333;
+    @include getStylesBreakpoints($h1);
 }
 h2 {
-    font-size: 68px;
-    line-height: 1.11765;
+    @include getStylesBreakpoints($h2);
 }
 h3 {
-    font-size: 52px;
-    line-height: 1.23077;
+    @include getStylesBreakpoints($h3);
 }
 h4 {
-    font-size: 27px;
-    line-height: 1.33333;
+    @include getStylesBreakpoints($h4);
 }
 h5 {
-    font-size: 17px;
-    line-height: 1.41176;
+    @include getStylesBreakpoints($h5);
 }
 h6 {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.5;
+    @include getStylesBreakpoints($h6);
 }
 
-ul, ol, dl {
-    margin-bottom: 15px;
-    margin-top: 15px;
-}*/
+
+/*** Lists ***/
+ol, ul {
+    color: inherit;
+    margin-bottom: $general_margin;
+    margin-top: $general_margin;
+    padding: 0 0 0 1.25em;
+    
+    ol, ul {
+        font-size: inherit;
+        margin-bottom: $general_margin/2;
+        margin-top: $general_margin/2;
+    }
+    li {
+        margin: 0;
+    }
+}
+dl {
+    margin-bottom: $general_margin;
+    margin-top: $general_margin;
+
+    dt { margin: $general_margin/2 0; }
+    dd {
+        margin: 0 0 0 $general_margin*2;
+    }
+}

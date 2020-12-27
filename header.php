@@ -2,7 +2,6 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php bloginfo('description'); ?>">
     
@@ -29,7 +28,7 @@
 	
 	<!-- Page -->
     <div id="page" class="cs__site">
-		<header id="header" class="cs__header" role="banner">
+		<header id="header" class="cs__header">
             <div class="cs__header__container cs__container">
                 <div class="cs__header__toggle cs__col">
                     <button id="toggle" class="cs__toggle" type="button">
@@ -39,8 +38,8 @@
 
                 <div class="cs__header__logo cs__col">
                     <?php if ( !has_custom_logo() ) { ?>
-                        <a class="cs__logo" href="<?php echo get_home_url(); ?>">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/logo.png" alt="" />
+                        <a class="cs__logo" href="<?= get_home_url(); ?>">
+                            <img class="cs__logo__image" src="<?php bloginfo('template_url'); ?>/assets/img/logo.png" alt="" />
                         </a>
                     <?php } else { ?>
                         <?php the_custom_logo(); ?>
@@ -58,4 +57,4 @@
         </header>
 
 		<!-- Container -->
-		<main id="main" class="cs__main" role="main">
+		<main id="main" class="cs__main">

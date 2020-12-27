@@ -3,9 +3,10 @@
 // Load scripts
 add_action('wp_enqueue_scripts', 'cs__header_scripts'); // Add Scripts
 function cs__header_scripts(){
-    if ( $GLOBALS['pagenow'] != 'wp-login.php' && !is_admin() ){
+    if ( $GLOBALS['pagenow']!='wp-login.php' && !is_admin() ){
         wp_register_script('themescripts', get_template_directory_uri() . '/assets/js/build/global.js', array('jquery'), filemtime(get_template_directory() . '/assets/js/build/global.js'), true);
         wp_enqueue_script('themescripts');
+		// wp_deregister_script('jquery');
     }
 }
 
@@ -15,6 +16,9 @@ add_action('wp_enqueue_scripts', 'cs__styles'); // Add Theme Stylesheet
 function cs__styles(){
     wp_register_style('themestyle', get_template_directory_uri() . '/assets/css/build/global.css', array(), filemtime(get_template_directory() . '/assets/css/build/global.css'), 'all');
     wp_enqueue_style('themestyle');
+    
+    // Remove Contact form 7 styles
+    wp_dequeue_style( 'contact-form-7' );
 }
 
 

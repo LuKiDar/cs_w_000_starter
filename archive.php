@@ -3,7 +3,7 @@
 <div class="cs__feed">
     <div class="cs__container cs__container--1">
         <div class="cs__col">
-            <h1 class="cs__feed__title"><?php _e( 'Latest Posts', CSWP ); ?></h1>
+            <h1 class="cs__feed__title"><?= get_the_archive_title(); ?></h1>
         </div>
     </div>
 

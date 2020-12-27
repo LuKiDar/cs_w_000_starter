@@ -1,10 +1,10 @@
         </main>
 
-        <footer id="footer" class="cs__footer" role="contentinfo">
+        <footer id="footer" class="cs__footer">
             <div class="cs__container">
                 <div class="cs__col">
                     <?php wp_nav_menu(array(
-                        'menu' => 'main-manu',
+                        'menu' => 'main-menu',
                         'menu_class' => 'cs__footer-menu',
                         'container' => false
                     )); ?>

@@ -14,6 +14,7 @@ function cs__custom_menu_order( $menu_ord ) {
         //'edit.php?post_type=product', // Products
         'edit.php', // Posts
         'upload.php', // Media
+        'wpcf7', // Contact
         'theme-settings', // ACF: Theme Settings
         'separator2', // Second separator
         'themes.php', // Appearance

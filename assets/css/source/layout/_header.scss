@@ -45,12 +45,15 @@
             max-width: calc(100% - 164px);
         }
 
-        .logo {
+        .cs__logo {
             display: inline-block;
-            width: map-get($header_logoWidth,'default');
+            
+            &__image {
+                width: map-get($header_logoWidth,'default');
 
-            @include mediaMaxWidth(xs){
-                width: map-get($header_logoWidth,'xs');
+                @include mediaMaxWidth(xs){
+                    width: map-get($header_logoWidth,'xs');
+                }
             }
         }
     }

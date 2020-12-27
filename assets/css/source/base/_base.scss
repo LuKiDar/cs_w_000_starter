@@ -38,8 +38,12 @@ body {
     overflow-x: hidden;
     word-wrap: break-word;
 
-    * { outline: none; }
-    // &.menu-active { overflow: hidden; }
+    * {
+        outline: none;
+    }
+    &.menu-active {
+        overflow: hidden;
+    }
 }
 .cs__site {
     display: flex;
@@ -48,8 +52,8 @@ body {
     overflow-x: hidden;
     padding-top: map-get($header_height,'default');
 
-    @include mediaMaxWidth(md){
-        padding-top: map-get($header_height,'md');
+    @include mediaMaxWidth($mobileBreakpoint){
+        padding-top: map-get($header_height,$mobileBreakpoint);
     }
 
     body.admin-bar & {
@@ -58,6 +62,9 @@ body {
         @media screen and (max-width: 782px) { min-height: calc(100vh - 46px); }
         @media screen and (max-width: 600px) { min-height: 100vh; }
     }
+}
+.cs__main {
+    overflow: hidden;
 }
 .cs__scrollbar-measure {
     height: 100px;

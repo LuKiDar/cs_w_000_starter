@@ -2,4 +2,13 @@
  * Default template
  */
 
-.cs__default-page {}
+.cs__default-page {
+    padding-bottom: 60px;
+    padding-top: 75px;
+
+    &__title {
+        border-bottom: 1px solid $general_borderColor;
+        margin-bottom: 60px;
+        padding-bottom: 15px;
+    }
+}

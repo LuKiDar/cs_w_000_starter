@@ -2,6 +2,40 @@
  * Pagination
  */
 
-.cs__pagination {
-    
+.pagination {
+    margin: 60px 0 15px;
+
+    .nav-links {
+        justify-content: center;
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0 -5px;
+    }
+    .page-numbers {
+        background: $light_gray;
+        color: $general_color;
+        display: inline-block;
+        min-width: 35px;
+        margin: 2px;
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        transition: all $global_transition;
+
+        &:hover,
+        &:focus {
+            @include mediaMinWidth($mobileBreakpoint){
+                color: $general_linkColorHover;
+            }
+        }
+        &.prev,
+        &.next {
+            padding: 5px 10px;
+        }
+        &.current {
+            background: $general_color;
+            color: $white;
+            pointer-events: none;
+        }
+    }
 }

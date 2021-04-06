@@ -2,10 +2,11 @@
  * Buttons
  */
 
- %btn {
+%btn {
     @include getStyles($small);
     border: none;
     border-radius: 1px;
+    cursor: pointer;
     display: inline-block;
     line-height: $general_lineHeight;
     min-width: 170px;
@@ -68,17 +69,6 @@
             }
         }
     }
-	&[disabled],
-	&.disabled {
-		background-color: $medium_gray !important;
-		color: $white !important;
-        cursor: not-allowed;
-        outline: none !important;
-
-        &:after {
-            content: none;
-        }
-	}
 	&[disabled],
 	&.disabled {
 		background-color: $medium_gray !important;

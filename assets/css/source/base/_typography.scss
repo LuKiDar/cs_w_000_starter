@@ -6,13 +6,17 @@ p {
     color: inherit;
     margin: 0 0 $general_margin;
 
-    &:last-child { margin-bottom: 0 !important; }
+    &:last-child {
+		margin-bottom: 0 !important;
+	}
 }
 a {
     transition: all $global_transition;
     
     &:before,
-    &:after { transition: all $global_transition; }
+    &:after {
+		transition: all $global_transition;
+	}
 
     &:not([class]),
     &[class=""] {
@@ -61,7 +65,9 @@ pre {
     word-break: break-all;
     word-wrap: break-word;
 }
-q { quotes: '“' '”'; }
+q {
+	quotes: '“' '”';
+}
 mark {
     background: $dark_gray;
     color: $white;
@@ -157,7 +163,9 @@ dl {
     margin-bottom: $general_margin;
     margin-top: $general_margin;
 
-    dt { margin: $general_margin/2 0; }
+    dt {
+		margin: $general_margin/2 0;
+	}
     dd {
         margin: 0 0 0 $general_margin*2;
     }
@@ -193,4 +201,34 @@ tbody {
 }
 tfoot {
     background: $light_gray;
+}
+
+
+/*** WP classes ***/
+.alignnone {
+    clear: both;
+    display: block;
+    margin: $general_margin 0;
+}
+.aligncenter {
+    clear: both;
+    display: block;
+    margin: $general_margin auto $general_margin;
+}
+.alignleft {
+    float: left !important;
+    margin: $general_margin $general_margin $general_margin 0;
+}
+.alignright {
+    float: right !important;
+    margin: $general_margin 0 $general_margin $general_margin;
+}
+
+
+/*** Other ***/
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
 }

@@ -183,7 +183,7 @@ thead, tfoot {
     border: 1px solid $general_borderColor;
     
     th, td {
-        font-weight: 700;
+        font-weight: $text-bold;
         padding: 0.5rem 0.625rem 0.625rem;
         text-align: left;
     }

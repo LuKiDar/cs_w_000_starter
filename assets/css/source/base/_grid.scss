@@ -18,6 +18,24 @@
         padding-left: 0;
         padding-right: 0;
     }
+    &--ai-start {
+        align-items: flex-start;
+    }
+    &--ai-center {
+        align-items: center;
+    }
+    &--ai-end {
+        align-items: flex-end;
+    }
+    &--jc-start {
+        justify-content: flex-start;
+    }
+    &--jc-center {
+        justify-content: center;
+    }
+    &--jc-end {
+        justify-content: flex-end;
+    }
 
     // .cs__container--*
     @for $i from 1 through $columns {

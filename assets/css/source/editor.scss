@@ -1,6 +1,8 @@
 /************ Base styling ************/
-@import 'helpers/variables';
-@import 'helpers/mixins';
+$html_fontSize: 16px;
+@import 'abstracts/functions';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
 @import 'base/fonts';
 
 
@@ -8,7 +10,7 @@
 body {
     color: $general_color;
     font-family: $general_font;
-    font-size: 16px;
+    font-size: $general_fontSize;
     line-height: $general_lineHeight;
 }
 *, *:before, *:after {

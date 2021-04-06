@@ -1,10 +1,11 @@
 /************ Base styling ************/
+$html_fontSize: 16px;
+@import 'abstracts/functions';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
 @import 'base/fonts';
 @import 'base/normalize';
-
-@import 'helpers/variables';
-@import 'helpers/mixins';
-
 @import 'base/grid';
 @import 'base/base';
 @import 'base/typography';

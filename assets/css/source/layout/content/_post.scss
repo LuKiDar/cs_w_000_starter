@@ -40,12 +40,12 @@
         li {
             display: inline;
 
-            &:after {
+            &::after {
                 content: '|';
                 margin: 0 10px;
             }
 
-            &:last-child:after {
+            &:last-child::after {
                 content: none;
             }
         }
@@ -62,12 +62,12 @@
         li {
             display: inline;
 
-            &:after {
+            &::after {
                 content: '|';
                 margin: 0 10px;
             }
 
-            &:last-child:after {
+            &:last-child::after {
                 content: none;
             }
         }

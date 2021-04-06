@@ -16,7 +16,7 @@
     text-decoration: none;
     transition: background $global_transition, color $global_transition;
     
-    &:after {
+    &::after {
         background-color: rgba($white, .1);
         border-radius: 100%;
         content: '';
@@ -76,7 +76,7 @@
         cursor: not-allowed;
         outline: none !important;
 
-        &:after {
+        &::after {
             content: none;
         }
 	}
@@ -88,7 +88,7 @@
     }
     &:active {
         @include mediaMinWidth($mobileBreakpoint){
-            &:after {
+            &::after {
                 height: 100px;
                 opacity: 1;
                 width: 100px;
@@ -266,7 +266,7 @@ textarea {
             &:active {
                 #{$file}-button {
                     @include mediaMinWidth($mobileBreakpoint){
-                        &:after {
+                        &::after {
                             height: 116px;
                             opacity: 1;
                             width: 116px;
@@ -344,14 +344,14 @@ textarea {
                 padding: 0 0 0 30px;
                 position: relative;
 
-                &:before,
-                &:after {
+                &::before,
+                &::after {
                     content: '';
                     display: block;
                     position: absolute;
                     transition: all $global_transition;
                 }
-                &:before {
+                &::before {
                     background-color: $light_gray;
                     height: 20px;
                     left: 0;
@@ -360,14 +360,14 @@ textarea {
                     width: 20px;
                     z-index: 1;
                 }
-                &:after {
+                &::after {
                     opacity: 0;
                     z-index: 3;
                 }
                 
                 &:hover {
                     @include mediaMinWidth($mobileBreakpoint){
-                        &:before {
+                        &::before {
                             background-color: $general_color;
                         }
                     }
@@ -375,10 +375,10 @@ textarea {
             }
 
             &:checked + span {
-                &:before {
+                &::before {
                     background-color: $general_color;
                 }
-                &:after {
+                &::after {
                     opacity: 1;
                 }
             }
@@ -389,10 +389,10 @@ textarea {
         input[type=checkbox],
         input[type=radio] {
             + span {
-                &:before {
+                &::before {
                     border-radius: 2px;
                 }
-                &:after {
+                &::after {
                     border-color: $white;
                     border-style: solid;
                     border-width: 0 3px 3px 0;
@@ -409,11 +409,11 @@ textarea {
         input[type=checkbox],
         input[type=radio] {
             + span {
-                &:before,
-                &:after {
+                &::before,
+                &::after {
                     border-radius: 100%;
                 }
-                &:after {
+                &::after {
                     background-color: $light_gray;
                     height: 10px;
                     left: 5px;
@@ -451,7 +451,7 @@ textarea {
         width: auto;
         z-index: 5;
 
-        &:before {
+        &::before {
             animation: spin 0.75s 0s infinite ease;
             animation-fill-mode: both;
             border-color: $white $white transparent $white;
@@ -478,12 +478,12 @@ textarea {
         padding-left: 20px;
         position: relative;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             display: block;
             position: absolute;
         }
-        &:before {
+        &::before {
             border-color: transparent transparent $error transparent;
             border-radius: 2px;
             border-style: solid;
@@ -496,7 +496,7 @@ textarea {
                 top: -10px;
             }
         }
-        &:after {
+        &::after {
             color: $white;
             content: '!';
             font-size: 8px;
@@ -521,7 +521,7 @@ textarea {
         padding: #{$gutter/2} #{$gutter/2} #{$gutter/2} #{$gutter + 20px};
         position: relative;
 
-        &:before {
+        &::before {
             background-color: $focus;
             border-radius: 100%;
             content: 'i';
@@ -545,7 +545,7 @@ textarea {
         &.sent .wpcf7-response-output {
             border-top-color: $success; // #8CC152, green
 
-            &:before {
+            &::before {
                 background-color: $success;
                 content: '✓';
             }
@@ -554,7 +554,7 @@ textarea {
         &.aborted .wpcf7-response-output {
             border-top-color: $error; // #ED5565, red
 
-            &:before {
+            &::before {
                 background-color: $error;
                 content: '✕';
             }
@@ -562,7 +562,7 @@ textarea {
         &.spam .wpcf7-response-output {
             border-top-color: #FC6E51; // #FC6E51, orange
 
-            &:before {
+            &::before {
                 background-color: #FC6E51;
                 content: '!';
             }
@@ -571,7 +571,7 @@ textarea {
         &.unaccepted .wpcf7-response-output {
             border-top-color: #FFCE54; // #FFCE54, yellow
 
-            &:before {
+            &::before {
                 background-color: #FFCE54;
                 content: '!';
             }

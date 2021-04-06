@@ -13,8 +13,8 @@ p {
 a {
     transition: all $global_transition;
     
-    &:before,
-    &:after {
+    &::before,
+    &::after {
 		transition: all $global_transition;
 	}
 

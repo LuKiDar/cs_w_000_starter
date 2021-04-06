@@ -90,12 +90,12 @@
             transition: transform $header_menuTransition ease-in-out;
         }
         .cs__toggle {
-            &:before {
+            &::before {
                 height: 4px;
                 top: 50%;
                 transform: translateY(-50%) rotate(45deg);
             }
-            &:after {
+            &::after {
                 bottom: 50%;
                 height: 4px;
                 transform: translateY(50%) rotate(-45deg);
@@ -115,8 +115,8 @@
     position: relative;
     width: 24px;
     
-    &:before,
-    &:after,
+    &::before,
+    &::after,
     &__stick {
         background-color: $black;
         content: "";
@@ -127,10 +127,10 @@
         transition: all $global_transition;
         width: 100%;
     }
-    &:before {
+    &::before {
         top: 0;
     }
-    &:after {
+    &::after {
         bottom: 0;
     }
     &__stick {

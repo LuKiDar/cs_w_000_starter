@@ -23,7 +23,7 @@ body .acf {
     }
 
     // Custom classes
-    .acf-force-duplicate {
+    &-force-duplicate {
         .acf-table>tbody>tr>th,
         .acf-table>tbody>tr>td,
         .acf-table>thead>tr>th,
@@ -49,7 +49,7 @@ body .acf {
         }
     }
 
-    .acf-field-message.acf-warning {
+    &-field-message.acf-warning {
         background: #fff;
         border: 1px solid #ccd0d4 !important;
         border-left-color: #ffb900 !important;

@@ -4,7 +4,7 @@
         $minWidth: map-get($breakpoints, $minWidth);
     }
 
-    @media screen and (min-width: #{$minWidth}px){
+    @media screen and (min-width: #{$minWidth + 0px}){
         @content;
     }
 }
@@ -13,7 +13,7 @@
         $maxWidth: map-get($breakpoints, $maxWidth) - 1;
     }
 
-    @media screen and (max-width: #{$maxWidth}px){
+    @media screen and (max-width: #{$maxWidth + 0px}){
         @content;
     }
 }
@@ -25,7 +25,7 @@
         $maxWidth: map-get($breakpoints, $maxWidth) - 1;
     }
 
-    @media screen and (min-width: #{$minWidth}px) and (max-width: #{$maxWidth}px){
+    @media screen and (min-width: #{$minWidth + 0px}) and (max-width: #{$maxWidth + 0px}){
         @content;
     }
 }
@@ -51,6 +51,7 @@
         }
     }
 }
+
 
 
 // ************ Placeholder ************

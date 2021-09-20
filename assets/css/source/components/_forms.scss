@@ -539,8 +539,13 @@ textarea {
         }
     }
     form {
-        &.init .wpcf7-response-output {
+        &.init .wpcf7-response-output,
+        &.submitting .wpcf7-response-output {
             display: none;
+        }
+        &.submitting .ajax-loader {
+            opacity: 1;
+            visibility: visible;
         }
         &.sent .wpcf7-response-output {
             border-top-color: $success; // #8CC152, green

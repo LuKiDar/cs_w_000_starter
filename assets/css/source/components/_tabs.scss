@@ -1,0 +1,93 @@
+/**
+ * Tabs
+ */
+
+.tabs {
+    &__header {
+        display: flex;
+        flex-flow: row nowrap;
+
+        @include mediaMaxWidth(md){
+            display: none !important;
+        }
+    }
+    &__title {
+        color: $medium_gray;
+        flex: 0 1 auto;
+        font-weight: 600;
+        text-decoration: none;
+
+        @include mediaMinWidth(md){
+            padding: 10px 20px;
+            text-align: center;
+
+            &--active {
+                background: $light_gray;
+                color: $black;
+                pointer-events: none;
+            }
+            &:hover {
+                color: $dark_gray;
+            }
+        }
+        @include mediaMaxWidth(md){
+            border-top: 1px solid $white;
+            padding: 14px #{$gutter + 25px} 14px #{$gutter};
+            position: relative;
+
+            &::before,
+            &::after {
+                background: $medium_gray;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &::before {
+                height: 2px;
+                right: #{$gutter};
+                width: 14px;
+            }
+            &::after {
+                height: 14px;
+                right: #{$gutter + 6px};
+                width: 2px;
+            }
+
+            &--active {
+                color: $black;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+    &__body {
+        background: $light_gray;
+        margin: 0 !important;
+
+        > dt {
+            margin: 0;
+
+            @include mediaMinWidth(md){
+                display: none !important;
+            }
+        }
+    }
+    &__content {
+        margin: 0 !important;
+        
+        @include mediaMinWidth(md){
+            padding: 35px 50px;
+        }
+        @include mediaMaxWidth(md){
+            padding: 5px #{$gutter} 15px;
+        }
+
+        &:not(&--active){
+            display: none;
+        }
+    }
+}

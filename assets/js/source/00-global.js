@@ -9,6 +9,20 @@
             document.body.classList.toggle('menu-active');
         });
     });
+    
+    // Check if scrolled
+    function isScrolled(){
+        const scrollpos = window.scrollY;
+    
+        if( scrollpos>10 ){
+            document.body.classList.add('is-scrolled');
+        }
+        else {
+            document.body.classList.remove('is-scrolled');
+        }
+    }
+    document.addEventListener("DOMContentLoaded", isScrolled);
+    window.addEventListener("scroll", isScrolled);
 
 /**
  *  Slide to section on anchor

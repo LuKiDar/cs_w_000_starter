@@ -1,6 +1,9 @@
 <?php
 define('CSWP', 'cswp', true);
 
+// Constants
+include 'inc/constants.php';
+
 /*------------------------------------*\
 	Theme Support
 \*------------------------------------*/
@@ -47,7 +50,8 @@ function cs__mime_types($mimes) {
 
 // Register Navigation
 register_nav_menus(array(
-    'main-menu' => __('Main Menu', CSWP)
+    'main-menu' => __('Main Menu', CSWP),
+    'footer-menu' => __('Footer Menu', CSWP),
 ));
 
 
@@ -130,6 +134,21 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
     wp_enqueue_script('livereload');
 }
 
+
+/*** Get template page ID ***/
+function cs__get_template_page_ID($template, $index=0){
+    $pages = get_posts(array(
+        'post_type' =>'page',
+        'meta_key'  =>'_wp_page_template',
+        'meta_value'=> 'templates/'. $template .'.php',
+        'orderby' => 'ID',
+        'order' => 'ASC'
+    ));
+
+    return $pages[$index]->ID;
+}
+
+
 /*** Wordpress get image (post thumbnauil) URL by id
    * $cur_id -- post id (gets its thumbnail id) or image id
    * $post_check -- set true, if it's post id
@@ -197,8 +216,8 @@ add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed i
 add_filter('excerpt_length', function(){ return 30; }); // Change Excerpt length
 add_filter('excerpt_more', function($more){ return '...'; }); // Change Excerpt "read more" string
 add_filter('get_custom_logo', function( $html ){ // Change custom logo class
-	$html = str_replace('custom-logo-link', 'cs__logo', $html );
-	$html = str_replace('custom-logo', 'cs__logo__image', $html );
+	$html = str_replace('custom-logo-link', 'logo', $html );
+	$html = str_replace('custom-logo', 'logo__image', $html );
 	return $html;
 });
 add_filter('intermediate_image_sizes', function($sizes){ // Remove image size "medium_large"
@@ -213,12 +232,11 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 
 // Enqueue assets
 include 'inc/enqueue.php';
-
 // Create custom post types and taxonomies
 include_once 'inc/post-types.php';
-
 // ACF Settings
 include_once 'inc/acf-config.php';
-
 // Admin
 include_once 'inc/admin.php';
+// Gutenberg blocks
+//include_once 'inc/gutenberg-blocks.php';

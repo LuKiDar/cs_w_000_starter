@@ -5,18 +5,18 @@
  * Form / Custom input[type=file]
  */
     document.addEventListener("DOMContentLoaded", function(){
-        if ( document.getElementsByClassName('cs__form__file').length>0 ){
-            [].forEach.call(document.querySelectorAll('.cs__form__file'), function(file){
+        if ( document.getElementsByClassName('form__file').length>0 ){
+            [].forEach.call(document.querySelectorAll('.form__file'), function(file){
                 let fileWrapper = document.createElement('label');
                 fileWrapper.htmlFor = file.id;
-                fileWrapper.classList.add('cs__form__file-wrap');
+                fileWrapper.classList.add('form__file-wrap');
 
                 file.parentNode.insertBefore(fileWrapper, file);
                 fileWrapper.appendChild(file);
 
                 let fileInput = document.createElement('span');
                 fileInput.type = 'text';
-                fileInput.classList.add('cs__form__file-input');
+                fileInput.classList.add('form__file-input');
                 fileInput.classList.add('input');
                 fileInput.classList.add('placeholder');
                 fileInput.innerHTML = 'MAX 6MB';
@@ -25,7 +25,7 @@
                 fileWrapper.appendChild(fileInput);
                 
                 let fileButton = document.createElement('span');
-                fileButton.classList.add('cs__form__file-button');
+                fileButton.classList.add('form__file-button');
                 fileButton.classList.add('button');
                 fileButton.classList.add('button--file');
                 fileButton.innerHTML = 'Choose a file';

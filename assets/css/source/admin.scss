@@ -1,3 +1,18 @@
+//*** Base styling ***//
+$html_fontSize: 16px;
+
+@import 'abstracts/functions';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+//*** Components ***//
+// @import 'components/tabs';
+
+//*** Layout ***//
+// Section
+// @import 'layout/section/tabs';
+
+
 /*** ACF ***/
 body .acf {
     &-flexible-content .layout {
@@ -66,4 +81,8 @@ body .acf {
             padding: 2px;
         }
     }
+}
+    
+.hide {
+    display: none !important;
 }

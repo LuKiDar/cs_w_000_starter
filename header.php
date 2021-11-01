@@ -27,29 +27,29 @@
     <!-- /REMOVE AFTER DEVELOPING -->
 	
 	<!-- Page -->
-    <div id="page" class="cs__site">
-		<header id="header" class="cs__header">
-            <div class="cs__header__container cs__container">
-                <div class="cs__header__toggle cs__col">
-                    <button id="toggle" class="cs__toggle" type="button">
-                        <i class="cs__toggle__stick"></i>
+    <div id="page" class="site">
+		<header id="header" class="header">
+            <div class="header__container container">
+                <div class="header__toggle col">
+                    <button id="toggle" class="toggle" type="button">
+                        <i class="toggle__stick"></i>
                     </button>
                 </div>
 
-                <div class="cs__header__logo cs__col">
+                <div class="header__logo col">
                     <?php if ( !has_custom_logo() ) { ?>
-                        <a class="cs__logo" href="<?= get_home_url(); ?>">
-                            <img class="cs__logo__image" src="<?php bloginfo('template_url'); ?>/assets/img/logo.png" alt="" />
+                        <a class="logo" href="<?= get_home_url(); ?>">
+                            <img class="logo__image" src="<?php bloginfo('template_url'); ?>/assets/img/logo.png" alt="" />
                         </a>
                     <?php } else { ?>
                         <?php the_custom_logo(); ?>
                     <?php } ?>
                 </div>
                 
-                <div class="cs__header__menu cs__col">
+                <div class="header__menu col">
                     <?php wp_nav_menu(array(
                         'container' => false,
-                        'menu_class' => 'cs__main-menu',
+                        'menu_class' => 'main-menu',
                         'theme_location' => 'main-menu'
                     )); ?>
                 </div>
@@ -57,4 +57,4 @@
         </header>
 
 		<!-- Container -->
-		<main id="main" class="cs__main">
+		<main id="main" class="main">

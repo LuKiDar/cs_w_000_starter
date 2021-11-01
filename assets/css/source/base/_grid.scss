@@ -2,7 +2,7 @@
  * Grid
  */
 
-.cs__container {
+.container {
     display: flex;
     flex-flow: row wrap;
     margin-left: auto;
@@ -37,73 +37,73 @@
         justify-content: flex-end;
     }
 
-    // .cs__container--*
+    // .container--*
     @for $i from 1 through $columns {
-        &--#{$i} > .cs__col {
+        &--#{$i} > .col {
             flex: 0 0 (100%/$i);
             max-width: (100%/$i);
         }
     }
-    // .cs__container--xl-*
+    // .container--xl-*
     @include mediaBetween(lg,xl){
         @for $i from 1 through $columns {
-            &--xl-#{$i} > .cs__col {
+            &--xl-#{$i} > .col {
                 flex: 0 0 (100%/$i);
                 max-width: (100%/$i);
             }
         }
     }
-    // .cs__container--lg-*
+    // .container--lg-*
     @include mediaBetween(md,lg){
         @for $i from 1 through $columns {
-            &--lg-#{$i} > .cs__col {
+            &--lg-#{$i} > .col {
                 flex: 0 0 (100%/$i);
                 max-width: (100%/$i);
             }
         }
     }
-    // .cs__container--md-*
+    // .container--md-*
     @include mediaBetween(sm,md){
         @for $i from 1 through $columns {
-            &--md-#{$i} > .cs__col {
+            &--md-#{$i} > .col {
                 flex: 0 0 (100%/$i);
                 max-width: (100%/$i);
             }
         }
     }
-    // .cs__container--sm-*
+    // .container--sm-*
     @include mediaBetween(xs,sm){
         @for $i from 1 through $columns {
-            &--sm-#{$i} > .cs__col {
+            &--sm-#{$i} > .col {
                 flex: 0 0 (100%/$i);
                 max-width: (100%/$i);
             }
         }
     }
-    // .cs__container--xs-*
+    // .container--xs-*
     @include mediaMaxWidth(xs){
         @for $i from 1 through $columns {
-            &--xs-#{$i} > .cs__col {
+            &--xs-#{$i} > .col {
                 flex: 0 0 (100%/$i);
                 max-width: (100%/$i);
             }
         }
     }
 }
-.cs__col {
+.col {
     flex: 1 0 auto;
     max-width: 100%;
     padding-left: $gutter/2;
     padding-right: $gutter/2;
 
-    // .cs__col--*
+    // .col--*
     @for $i from 1 through $columns {
         &--#{$i} {
             flex: 0 0 (100%/$columns*$i);
             max-width: (100%/$columns*$i);
         }
     }
-    // .cs__col--xl-*
+    // .col--xl-*
     @include mediaBetween(lg,xl){
         @for $i from 1 through $columns {
             &--xl-#{$i} {
@@ -112,7 +112,7 @@
             }
         }
     }
-    // .cs__col--lg-*
+    // .col--lg-*
     @include mediaBetween(md,lg){
         @for $i from 1 through $columns {
             &--lg-#{$i} {
@@ -121,7 +121,7 @@
             }
         }
     }
-    // .cs__col--md-*
+    // .col--md-*
     @include mediaBetween(sm,md){
         @for $i from 1 through $columns {
             &--md-#{$i} {
@@ -130,7 +130,7 @@
             }
         }
     }
-    // .cs__col--sm-*
+    // .col--sm-*
     @include mediaBetween(xs,sm){
         @for $i from 1 through $columns {
             &--sm-#{$i} {
@@ -139,7 +139,7 @@
             }
         }
     }
-    // .cs__col--xs-*
+    // .col--xs-*
     @include mediaMaxWidth(xs){
         @for $i from 1 through $columns {
             &--xs-#{$i} {

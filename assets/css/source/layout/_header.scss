@@ -2,7 +2,7 @@
  * Header
  */
 
-.cs__header {
+.header {
     $h: &;
 
     background: $white;
@@ -45,7 +45,7 @@
             max-width: calc(100% - 164px);
         }
 
-        .cs__logo {
+        .logo {
             display: inline-block;
             
             &__image {
@@ -89,7 +89,7 @@
             transform: translateY(0);
             transition: transform $header_menuTransition ease-in-out;
         }
-        .cs__toggle {
+        .toggle {
             &::before {
                 height: 4px;
                 top: 50%;
@@ -108,7 +108,7 @@
     }
 }
 
-.cs__toggle {
+.toggle {
     background: transparent;
     border: none;
     height: 17px;

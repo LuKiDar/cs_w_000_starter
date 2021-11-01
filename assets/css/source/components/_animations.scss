@@ -3,8 +3,8 @@
  */
 
 /*** Loader spinner ***/
-.cs__spinner {
-    animation: cs__spin $spinner_speed infinite linear;
+.spinner {
+    animation: spin $spinner_speed infinite linear;
     background: transparent;
     border: 2px solid transparent;
     border-radius: 50%;
@@ -20,7 +20,7 @@
     z-index: 30;
 
     &::before {
-        animation: cs__spin $spinner_speed*2 infinite ease;
+        animation: spin $spinner_speed*2 infinite ease;
         border: inherit;
         border-radius: inherit;
         content: '';
@@ -33,14 +33,14 @@
     }
 }
 
-@keyframes cs__spin {
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
 
 /*** Animated blocks ***/
-.cs__animated-block {
+.animated-block {
     backface-visibility: visible;
     opacity: 0;
     transition: opacity $animatedBlock_speed ease-in-out, transform $animatedBlock_speed ease-in-out;

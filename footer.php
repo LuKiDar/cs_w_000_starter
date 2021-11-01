@@ -1,17 +1,22 @@
         </main>
 
-        <footer id="footer" class="cs__footer">
-            <div class="cs__container">
-                <div class="cs__col">
+        <footer id="footer" class="footer">
+            <div class="container">
+                <div class="col">
                     <?php wp_nav_menu(array(
                         'menu' => 'main-menu',
-                        'menu_class' => 'cs__footer-menu',
+                        'menu_class' => 'footer-menu',
                         'container' => false
                     )); ?>
                 </div>
             </div>
         </footer>
     </div>
+
+
+    <script>
+        const ajaxUrl = '<?= base64_encode(admin_url('admin-ajax.php')); ?>';
+    </script>
 
     <?php wp_footer(); ?>
 </body>

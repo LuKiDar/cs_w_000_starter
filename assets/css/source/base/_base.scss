@@ -45,7 +45,7 @@ body {
         overflow: hidden;
     }
 }
-.cs__site {
+.site {
     display: flex;
     flex-flow: column nowrap;
     min-height: 100vh;
@@ -63,10 +63,10 @@ body {
         @media screen and (max-width: 600px) { min-height: 100vh; }
     }
 }
-.cs__main {
+.main {
     overflow: hidden;
 }
-.cs__scrollbar-measure {
+.scrollbar-measure {
     height: 100px;
     overflow: scroll;
     position: absolute;

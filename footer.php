@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="col">
                     <?php wp_nav_menu(array(
-                        'menu' => 'main-menu',
+                        'menu' => 'footer-menu',
                         'menu_class' => 'footer-menu',
                         'container' => false
                     )); ?>

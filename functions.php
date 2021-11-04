@@ -35,6 +35,36 @@ if ( function_exists('add_theme_support') ){
         'flex-width'  => true,
     ) );
 
+    // Gutenberg: change color pallete
+	add_theme_support( 'disable-custom-colors' );
+	add_theme_support( 'editor-gradient-presets', [] );
+    add_theme_support( 'disable-custom-gradients' );
+    // add_theme_support(
+	// 	'editor-color-palette',
+	// 	[
+	// 		[
+	// 			'name'  => esc_html__('Black', CSWP),
+	// 			'slug'  => 'black',
+	// 			'color' => '#000000',
+	// 		],
+	// 		[
+	// 			'name'  => esc_html__('Medium gray', CSWP),
+	// 			'slug'  => 'medium-gray',
+	// 			'color' => '#777777',
+	// 		],
+	// 		[
+	// 			'name'  => esc_html__('Light Gray', CSWP),
+	// 			'slug'  => 'light-gray',
+	// 			'color' => '#bababa',
+	// 		],
+	// 		[
+	// 			'name'  => esc_html__('White', CSWP),
+	// 			'slug'  => 'white',
+	// 			'color' => '#ffffff',
+	// 		]
+	// 	]
+	// );
+
     // Add WooCommerce support
     //add_theme_support( 'woocommerce' );
 

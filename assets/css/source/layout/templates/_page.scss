@@ -6,9 +6,11 @@
     padding-bottom: 60px;
     padding-top: 75px;
 
+    &__header {
+        margin-bottom: 60px;
+    }
     &__title {
         border-bottom: 1px solid $general_borderColor;
-        margin-bottom: 60px;
         padding-bottom: 15px;
     }
 }

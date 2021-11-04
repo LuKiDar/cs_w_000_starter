@@ -5,12 +5,10 @@ $html_fontSize: 16px;
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
-//*** Components ***//
-// @import 'components/tabs';
+@import 'base/fonts';
 
-//*** Layout ***//
-// Section
-// @import 'layout/section/tabs';
+//*** Blocks ***//
+// @import 'layout/block/hero';
 
 
 /*** ACF ***/
@@ -80,6 +78,16 @@ body .acf {
             margin: .5em 0;
             padding: 2px;
         }
+    }
+}
+body .wp-block:not(.is-selected) .acf-block-component {
+    > div:empty::before {
+        background: #f3f3f3;
+        color: #bbb;
+        content: 'This block is empty. Click to add content';
+        display: block;
+        padding: 20px 10px;
+        text-align: center;
     }
 }
     

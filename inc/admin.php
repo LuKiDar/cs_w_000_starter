@@ -49,3 +49,25 @@ function cs__hide_editor_for_pages() {
         }
     }
 }
+
+
+
+/*** TinyMCE: add style selector ***/
+// add_filter('mce_buttons_2', 'cs__mce_add_more_buttons');
+// function cs__mce_add_more_buttons( $buttons ){
+	// $buttons[] = 'styleselect';
+	// return $buttons;
+// }
+ 
+// add_filter('tiny_mce_before_init', 'cs__mce_before_init');
+// function cs__mce_before_init( $settings ){
+    // $style_formats = array(
+        // array(
+            // 'title' => 'Highlighted link',
+            // 'selector' => 'a',
+            // 'classes' => 'link-highlighted'
+        // )
+    // );
+    // $settings['style_formats'] = json_encode($style_formats);
+    // return $settings;
+// }

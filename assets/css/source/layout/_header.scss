@@ -11,6 +11,7 @@
     position: fixed;
     right: 0;
     top: 0;
+    transition: background $global_transition, box-shadow $global_transition, top 0.1s ease-in-out;
     z-index: 100;
     
     @include mediaMaxWidth($mobileBreakpoint){
@@ -79,8 +80,7 @@
     body.admin-bar & {
         top: 32px;
 
-        @media screen and (max-width: 782px) { top: 46px; }
-        @media screen and (max-width: 600px) { top: 0; }
+        @media screen and (max-width: 782px){ top: 46px; }
     }
     body.menu-active & {
         #{$h}__menu {
@@ -104,6 +104,11 @@
                 left: 50%;
                 width: 0;
             }
+        }
+    }
+    body.is-scrolled & {
+        @media screen and (max-width: 600px){
+            top: 0 !important;
         }
     }
 }

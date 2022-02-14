@@ -21,6 +21,37 @@ if ( function_exists('acf_register_block_type') ){
 }
 
 function cs__register_acf_block_types(){
+    // Block / Hero
+    acf_register_block_type(array(
+        'name'				=> 'block-hero',
+        'title'				=> __('Hero'),
+        'description'		=> __('A custom Hero block'),
+        'render_template'	=> 'parts/block/hero.php',
+        'category'			=> 'dh-blocks',
+        'icon'				=> 'cover-image',
+        'keywords'			=> array('hero', 'content'),
+        'mode'              => 'auto',
+        'supports'          => array(
+            'multiple' => false,
+        ),
+        'example'  => array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => array(
+                        'alt' => '',
+                        'sizes' => array(
+                            'large' => 'https://s.w.org/images/core/5.3/MtBlanc1.jpg',
+                            '1536x1536' => 'https://s.w.org/images/core/5.3/MtBlanc1.jpg',
+                            '2048x2048' => 'https://s.w.org/images/core/5.3/MtBlanc1.jpg',
+                        )
+                    ),
+                    'title' => 'Lorem ipsum dolor sit amet',
+                )
+            )
+        )
+    ));
+    
     // Block / Tabs
     acf_register_block_type(array(
         'name'				=> 'block-tabs',

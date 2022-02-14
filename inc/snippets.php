@@ -36,9 +36,8 @@
 
 <a href="#" data-modal="modal-modal_name"><?= $button_title; ?></a>
 <div id="modal-modal_name" class="modal-container">
-    <button class="modal-close-button"></button>
-
     <dialog class="modal" open>
+        <button class="modal__close-button"></button>
         <div class="modal__content"></div>
     </dialog>
 </div>
@@ -46,9 +45,8 @@
 <!-- Template: Modal / Modal_name -->
 <template id="tmpl-modal-modal_name">
     <div id="modal-modal_name" class="modal-container">
-        <button class="modal-close-button"></button>
-
         <dialog class="modal" open>
+            <button class="modal__close-button"></button>
             <div class="modal__content"></div>
         </dialog>
     </div>
@@ -78,3 +76,26 @@
         </picture>
     </figure>
 <?php } ?>
+
+
+
+<?php /*** admin.php / Disable Posts post type ***/ ?>
+
+<?php /*** Remove Posts post type ***/
+// Remove side menu
+add_action('admin_menu', 'cs__remove_default_post_type');
+function cs__remove_default_post_type(){
+    remove_menu_page('edit.php');
+}
+
+// Remove +New post in top Admin Menu Bar
+add_action('admin_bar_menu', 'cs__remove_default_post_type_menu_bar', 999);
+function cs__remove_default_post_type_menu_bar( $wp_admin_bar ){
+    $wp_admin_bar->remove_node('new-post');
+}
+
+// Remove Quick Draft Dashboard Widget
+add_action('wp_dashboard_setup', 'cs__remove_draft_widget', 999);
+function cs__remove_draft_widget(){
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+} ?>

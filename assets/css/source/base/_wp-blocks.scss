@@ -49,7 +49,9 @@
     }
 
     &:empty {
-        display: none !important;
+        @include mediaMaxWidth(md){
+            display: none !important;
+        }
     }
     &:not(:only-child){
         @include mediaBetween(xs,md){

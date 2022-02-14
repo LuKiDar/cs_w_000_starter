@@ -39,40 +39,45 @@
             }
         }
     }
-}
-
-.modal-close-button {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    height: 31px;
-    outline: 0;
-    padding: 0;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 31px;
-    z-index: 10;
-
-    &::before,
-    &::after {
-        background-color: $white;
-        content: '';
-        height: 4px;
-        right: 0;
+    &__close-button {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        height: 31px;
+        outline: 0;
+        padding: 0;
         position: absolute;
-        top: 50%;
-        transition: all $global_transition;
-        width: inherit;
-    }
-    &::before { transform: rotate(45deg); }
-    &::after { transform: rotate(-45deg); }
-
-    &:hover,
-    &:focus {
-        @include mediaMinWidth($mobileBreakpoint){
-            &::before,
-            &::after { background-color: $general_linkColorHover; }
+        right: 15px;
+        top: 15px;
+        width: 31px;
+        z-index: 10;
+    
+        &::before,
+        &::after {
+            background-color: $white;
+            content: '';
+            height: 4px;
+            right: 0;
+            position: absolute;
+            top: 50%;
+            transition: all $global_transition;
+            width: inherit;
+        }
+        &::before {
+            transform: rotate(45deg);
+        }
+        &::after {
+            transform: rotate(-45deg);
+        }
+    
+        &:hover,
+        &:focus {
+            @include mediaMinWidth($mobileBreakpoint){
+                &::before,
+                &::after {
+                    background-color: $general_linkColorHover;
+                }
+            }
         }
     }
 }

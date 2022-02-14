@@ -41,7 +41,8 @@ body {
     * {
         outline: none;
     }
-    &.menu-active {
+    &.menu-active,
+    &.modal-active {
         overflow: hidden;
     }
 }

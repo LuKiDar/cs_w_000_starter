@@ -99,3 +99,38 @@ add_action('wp_dashboard_setup', 'cs__remove_draft_widget', 999);
 function cs__remove_draft_widget(){
     remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
 } ?>
+
+
+
+<?php /*** CF7 form ***/ ?>
+
+[response]
+<div class="form">
+    <div class="form__col">
+        <div class="form__field">
+            <label class="form__label" for="name-field">Name:</label>
+            [text* name-field id:name-field placeholder "Enter your full name"]
+        </div>
+
+        <div class="form__field">
+            <label class="form__label" for="email-field">Email:</label>
+            [email* email-field id:email-field placeholder "Enter your email address"]
+        </div>
+
+        <div class="form__field">
+            <label class="form__label" for="email-confirm-field">Confirm Email:</label>
+            [confirm_email* email-confirm-field id:email-confirm-field placeholder "Enter your email address again"]
+        </div>
+    </div>
+
+    <div class="form__col">
+        <div class="form__field">
+            <label class="form__label" for="message-field">Message:</label>
+            [textarea message-field id:message-field placeholder "Add your message"]
+        </div>
+
+        <div class="form__field form__field--submit">
+            [submit class:button class:button--plum class:button--arrow "Send message"]
+        </div>
+    </div>
+</div>

@@ -36,7 +36,7 @@
 
                     if ( document.getElementById( item.getAttribute('href').replace('#', '') ) ){
                         let targetId = item.getAttribute('href').replace('#', '');
-                        let targetOffsetTop = document.getElementById(targetId).getBoundingClientRect().top - document.getElementById('header').offsetHeight;
+                        let targetOffsetTop = document.getElementById(targetId).getBoundingClientRect().top + window.scrollY - document.getElementById('header').offsetHeight;
 
                         if ( document.querySelectorAll('#wpadminbar').length>0 ){
                             targetOffsetTop -= document.getElementById('wpadminbar').offsetHeight;

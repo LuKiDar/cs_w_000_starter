@@ -500,7 +500,7 @@ textarea {
             color: $white;
             content: '!';
             font-size: 8px;
-            font-weight: $text-bold;
+            font-weight: $text_bold;
             left: 6px;
             top: 4px;
 
@@ -528,7 +528,7 @@ textarea {
             color: $white;
             display: inline-block;
             font-size: 14px;
-            font-weight: $text-bold;
+            font-weight: $text_bold;
             left: #{$gutter/2};
             line-height: 20px;
             text-align: center;

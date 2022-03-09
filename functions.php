@@ -15,18 +15,6 @@ if ( function_exists('add_theme_support') ){
 
     // Add Thumbnail Theme support
     add_theme_support('post-thumbnails');
-    //add_image_size('3200xAUTO', 3200, '', false);
-    //add_image_size('2560xAUTO', 2560, '', false);
-    //add_image_size('1920xAUTO', 1920, '', false);
-    //add_image_size('1024xAUTO', 1024, '', false);
-    
-    //add_image_size('1600xAUTO', 1600, '', false);
-    //add_image_size('1280xAUTO', 1280, '', false);
-    //add_image_size('960xAUTO',  960,  '', false);
-    //add_image_size('512xAUTO',  512,  '', false);
-
-    remove_image_size('1536x1536');
-    remove_image_size('2048x2048');
 
     // Add Custom logo support
     add_theme_support( 'custom-logo', array(
@@ -39,31 +27,36 @@ if ( function_exists('add_theme_support') ){
 	add_theme_support( 'disable-custom-colors' );
 	add_theme_support( 'editor-gradient-presets', [] );
     add_theme_support( 'disable-custom-gradients' );
-    // add_theme_support(
-	// 	'editor-color-palette',
-	// 	[
-	// 		[
-	// 			'name'  => esc_html__('Black', CSWP),
-	// 			'slug'  => 'black',
-	// 			'color' => '#000000',
-	// 		],
-	// 		[
-	// 			'name'  => esc_html__('Medium gray', CSWP),
-	// 			'slug'  => 'medium-gray',
-	// 			'color' => '#777777',
-	// 		],
-	// 		[
-	// 			'name'  => esc_html__('Light Gray', CSWP),
-	// 			'slug'  => 'light-gray',
-	// 			'color' => '#bababa',
-	// 		],
-	// 		[
-	// 			'name'  => esc_html__('White', CSWP),
-	// 			'slug'  => 'white',
-	// 			'color' => '#ffffff',
-	// 		]
-	// 	]
-	// );
+    add_theme_support(
+		'editor-color-palette',
+		[
+			[
+				'name'  => esc_html__('Black', CSWP),
+				'slug'  => 'black',
+				'color' => '#323133',
+			],
+			[
+				'name'  => esc_html__('Dark gray', CSWP),
+				'slug'  => 'dark-gray',
+				'color' => '#434A54',
+			],
+			[
+				'name'  => esc_html__('Medium gray', CSWP),
+				'slug'  => 'medium-gray',
+				'color' => '#CCD1D9',
+			],
+			[
+				'name'  => esc_html__('Light Gray', CSWP),
+				'slug'  => 'light-gray',
+				'color' => '#F5F7FA',
+			],
+			[
+				'name'  => esc_html__('White', CSWP),
+				'slug'  => 'white',
+				'color' => '#fefefe',
+			]
+		]
+	);
 
     // Add WooCommerce support
     //add_theme_support( 'woocommerce' );
@@ -179,49 +172,6 @@ function cs__get_template_page_ID($template, $index=0){
 }
 
 
-/*** Wordpress get image (post thumbnauil) URL by id
-   * $cur_id -- post id (gets its thumbnail id) or image id
-   * $post_check -- set true, if it's post id
-   * $size -- size of image to get
- ***/
-function cs__get_image_url($cur_id, $post_check, $size) {
-    if($post_check == true) { $cur_id = get_post_thumbnail_id($cur_id); }    
-    $image_url = wp_get_attachment_image_src($cur_id, $size);
-    return $image_url;
-}
-
-
-/*** Custom srcset for background image ***/
-function cs__get_bg_srcset($image, $post_check, $viewWidth='full') {
-    $result_image = 'bg-srcset="';
-    if ( is_array($image)==true && $post_check==false ){
-        
-        if ( $viewWidth=='full' ){
-            $result_image.= $image['url'] .' '. $image['width'] .'w, '. $image['sizes']['3200xAUTO'] .' 3200w, '. $image['sizes']['2560xAUTO'] .' 2560w, '. $image['sizes']['1920xAUTO'] .' 1920w, '. $image['sizes']['1024xAUTO'] .' 1024w';
-        }else if ( $viewWidth=='half' ){
-            $result_image.= $image['url'] .' '. $image['width']*2 .'w, '. $image['sizes']['1600xAUTO'] .' 3200w, '. $image['sizes']['1280xAUTO'] .' 2560w, '. $image['sizes']['960xAUTO'] .' 1920w, '. $image['sizes']['512xAUTO'] .' 1024w';
-        }
-        
-    }else if ( is_numeric($image)==true && $post_check==true ){
-        
-        $cur_id = get_post_thumbnail_id($image);
-        $full_image = wp_get_attachment_image_src($cur_id, 'full');
-        
-        if ( $viewWidth=='full' ){
-            $result_image.= $full_image[0] .' '. $full_image[1] .'w, '. wp_get_attachment_image_src($cur_id, '3200xAUTO')[0] .' 3200w, '. wp_get_attachment_image_src($cur_id, '2560xAUTO')[0] .' 2560w, '. wp_get_attachment_image_src($cur_id, '1920xAUTO')[0] .' 1920w, '. wp_get_attachment_image_src($cur_id, '1024xAUTO')[0] .' 1024w';
-        }else if ( $viewWidth=='half' ){
-            $result_image.= $full_image[0] .' '. $full_image[1] .'w, '. wp_get_attachment_image_src($cur_id, '1600xAUTO')[0] .' 3200w, '. wp_get_attachment_image_src($cur_id, '1280xAUTO')[0] .' 2560w, '. wp_get_attachment_image_src($cur_id, '960xAUTO')[0] .' 1920w, '. wp_get_attachment_image_src($cur_id, '512xAUTO')[0] .' 1024w';
-        }
-        
-    }
-    
-    $result_image .= '"';
-    
-    return $result_image;
-}
-
-
-
 /*------------------------------------*\
 	Actions + Filters
 \*------------------------------------*/
@@ -249,9 +199,6 @@ add_filter('get_custom_logo', function( $html ){ // Change custom logo class
 	$html = str_replace('custom-logo-link', 'logo', $html );
 	$html = str_replace('custom-logo', 'logo__image', $html );
 	return $html;
-});
-add_filter('intermediate_image_sizes', function($sizes){ // Remove image size "medium_large"
-    return array_diff($sizes, ['medium_large']);
 });
 
 /*** Remove Filters ***/

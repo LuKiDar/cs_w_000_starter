@@ -103,7 +103,7 @@
         }
     }
     .menu-item.current-menu-item {
-        > a { font-weight: $text-bold; }
+        > a { font-weight: $text_bold; }
     }
 }
 
@@ -134,7 +134,7 @@
             display: none !important;
         }
 
-        &.current-menu-item { font-weight: $text-bold; }
+        &.current-menu-item { font-weight: $text_bold; }
     }
 
     &:not(&--columns) {

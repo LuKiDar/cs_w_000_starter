@@ -153,3 +153,18 @@ function cs__remove_draft_widget(){
         <?php endwhile; ?>
     </ul>
 <?php endif; ?>
+
+
+
+<?php /*** Accordion ***/ ?>
+
+<?php if ( !empty($blocks) ): ?>
+    <dl class="accordion">
+        <?php foreach ( $blocks as $item ){ ?>
+            <?php if ( $item['title']!='' && $item['text']!='' ){ ?>
+                <dt class="accordion__header"><?= $item['title']; ?></dt>
+                <dd class="accordion__content"><?= $item['text']; ?></dd>
+            <?php } ?>
+        <?php } ?>
+    </dl>
+<?php endif; ?>

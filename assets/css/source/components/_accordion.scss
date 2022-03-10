@@ -1,0 +1,69 @@
+/**
+ * Accordion 
+ */
+
+.accordion {
+    $a: &;
+    
+    border-bottom: 2px solid $light_gray;
+
+    &__header {
+        background: $white;
+        border-top: 2px solid $light_gray;
+        cursor: pointer;
+        font-weight: $text_bold;
+        margin: 0;
+        padding: 20px 0;
+        position: relative;
+        transition: color $global_transition;
+
+        &::before,
+        &::after {
+            background: $dark_gray;
+            content: '';
+            display: block;
+            position: absolute;
+            transition: all $global_transition;
+        }
+        &::before {
+            height: 2px;
+            right: 0;
+            top: 28px;
+            width: 18px;
+        }
+        &::after {
+            height: 18px;
+            right: 8px;
+            top: 20px;
+            width: 2px;
+        }
+
+        &:hover,
+        &:focus-visible {
+            @include mediaMinWidth($mobileBreakpoint){
+                color: $dark_gray;
+            }
+        }
+
+        &--active {
+            &::after {
+                opacity: 0;
+            }
+        }
+    }
+    &__content {
+        background: $white;
+        margin-left: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height $global_transition, padding $global_transition;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            height: 20px;
+            width: 100%;
+        }
+    }
+}

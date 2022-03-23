@@ -82,7 +82,8 @@ body .acf {
     }
 }
 body .wp-block:not(.is-selected) .acf-block-component {
-    > div:empty::before {
+    > div:empty::before,
+    .acf-block-preview:empty::before {
         background: #f3f3f3;
         color: #bbb;
         content: 'This block is empty. Click to add content';

@@ -6,7 +6,7 @@
             <h1 class="default-page__title"><?= get_the_title(); ?></h1>
         </header>
         
-        <?php while ( have_posts() ) : the_post(); ?>
+        <?php while ( have_posts() ): the_post(); ?>
             <div class="col col--12">
                 <?php the_content(); ?>
             </div>

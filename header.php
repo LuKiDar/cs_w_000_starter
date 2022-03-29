@@ -51,6 +51,7 @@
                         'container' => false,
                         'menu_class' => 'main-menu',
                         'theme_location' => 'main-menu'
+                        // 'walker' => new cs__header_menu_walker()
                     )); ?>
                 </div>
             </div>

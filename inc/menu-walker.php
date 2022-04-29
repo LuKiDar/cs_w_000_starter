@@ -6,7 +6,7 @@
 /*** Header menu Walker ***/
 class cs__header_menu_walker extends Walker_Nav_Menu {
 	// add classes to ul sub-menus
-	function start_lvl( &$output, $depth, $args ){
+	function start_lvl( &$output, $depth=0, $args=array() ){
 		// depth dependent classes
         $indent = ( $depth>0 ? str_repeat("\t", $depth) : '' ); // code indent
         $display_depth = ($depth+1); // because it counts the first submenu as 0
@@ -23,7 +23,7 @@ class cs__header_menu_walker extends Walker_Nav_Menu {
 	}
 
 	// add main/sub classes to li's and links
-	function start_el( &$output, $item, $depth, $args, $current_object_id=0 ){
+	function start_el( &$output, $item, $depth=0, $args=array(), $current_object_id=0 ){
 		global $wp_query;
         $indent = ( $depth>0 ? str_repeat("\t", $depth) : '' ); // code indent
         // depth dependent classes
@@ -40,7 +40,7 @@ class cs__header_menu_walker extends Walker_Nav_Menu {
         $class_names = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item)));
 
         // build html
-        $output .= $indent .'<li id="nav-menu-item-'. $item->ID .'" class="' . $depth_class_names .' '. $class_names .'" data-content="'. $item->title .'">';
+        $output .= $indent .'<li id="menu-item-'. $item->ID .'" class="' . $class_names .' '. $depth_class_names .'" data-content="'. $item->title .'">';
 
         // link attributes
         $attributes = !empty($item->attr_title) ? ' title="'. esc_attr($item->attr_title) .'"' : '';

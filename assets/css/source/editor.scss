@@ -99,37 +99,11 @@ dl {
 
 
 /*** Colors ***/
-.has-black-background-color {
-    background-color: $black;
-}
-.has-black-color {
-    color: $black;
-}
-
-.has-dark-gray-background-color {
-    background-color: $dark_gray;
-}
-.has-dark-gray-color {
-    color: $dark_gray;
-}
-
-.has-medium-gray-background-color {
-    background-color: $medium_gray;
-}
-.has-medium-gray-color {
-    color: $medium_gray;
-}
-
-.has-light-gray-background-color {
-    background-color: $light_gray;
-}
-.has-light-gray-color {
-    color: $light_gray;
-}
-
-.has-white-background-color {
-    background-color: $white;
-}
-.has-white-color {
-    color: $white;
+@each $itemName, $itemValue in $color_chart {
+    .has-#{$itemName}-background-color {
+        background-color: #{$itemValue};
+    }
+    .has-#{$itemName}-color {
+        color: #{$itemValue};
+    }
 }

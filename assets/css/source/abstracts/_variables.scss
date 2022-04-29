@@ -18,16 +18,24 @@ $global_transition: 0.2s ease-in-out;
 
 
 // ************ Colors ************
-$white: #fefefe;
 $black: #323133;
-$light_gray: #F5F7FA;
-$medium_gray: #CCD1D9;
 $dark_gray: #434A54;
+$medium_gray: #CCD1D9;
+$light_gray: #F5F7FA;
+$white: #fefefe;
 
 // Functional colors
 $focus: #0072C5;
 $success: #009F53;
 $error: #E2001B;
+
+$color_chart: (
+    'black': $black,
+    'dark-gray': $dark_gray,
+    'medium-gray': $medium_gray,
+    'light-gray': $light_gray,
+    'white': $white
+);
 
 
 // ************ Typography *************

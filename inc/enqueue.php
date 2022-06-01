@@ -4,7 +4,7 @@
 add_action('wp_enqueue_scripts', 'cs__header_scripts'); // Add Scripts
 function cs__header_scripts(){
     if ( $GLOBALS['pagenow']!='wp-login.php' && !is_admin() ){
-        wp_register_script('themescripts', get_template_directory_uri() . '/assets/js/build/global.js', array('jquery'), filemtime(get_template_directory() . '/assets/js/build/global.js'), true);
+        wp_register_script('themescripts', get_template_directory_uri() . '/assets/js/build/global.js', array(), filemtime(get_template_directory() . '/assets/js/build/global.js'), true);
         wp_enqueue_script('themescripts');
 		// wp_deregister_script('jquery');
     }

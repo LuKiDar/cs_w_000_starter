@@ -96,3 +96,8 @@ body .wp-block:not(.is-selected) .acf-block-component {
 .hide {
     display: none !important;
 }
+
+#wpbody-content #menu-settings-column {
+    position: sticky;
+    top: 30px;
+}

@@ -14,6 +14,10 @@ function cs__header_scripts(){
 // Load styles
 add_action('wp_enqueue_scripts', 'cs__styles'); // Add Theme Stylesheet
 function cs__styles(){
+    // Remove Gutenberg block styles
+    wp_dequeue_style('wp-block-columns');
+    wp_dequeue_style('wp-block-column');
+    
     wp_register_style('themestyle', get_template_directory_uri() . '/assets/css/build/global.css', array(), filemtime(get_template_directory() . '/assets/css/build/global.css'), 'all');
     wp_enqueue_style('themestyle');
     

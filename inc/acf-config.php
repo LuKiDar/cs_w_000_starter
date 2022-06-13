@@ -25,8 +25,8 @@ endif;
 
 
 /*** ACF: Google API ***/
-function cs__acf_google_map_api($api){
-    $api['key'] = '';
-    return $api;
-}
-add_filter('acf/fields/google_map/api', 'cs__acf_google_map_api');
+// function cs__acf_google_map_api($api){
+//     $api['key'] = get_field('google_maps_api_key', 'options');
+//     return $api;
+// }
+// add_filter('acf/fields/google_map/api', 'cs__acf_google_map_api');

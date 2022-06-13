@@ -168,3 +168,11 @@ function cs__remove_draft_widget(){
         <?php } ?>
     </dl>
 <?php endif; ?>
+
+
+
+<?php /*** Map ***/ ?>
+
+<?php if ( !empty($map) ): ?>
+    <iframe height="100%" width="100%" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps/embed/v1/place?key=<?= $google_maps_api_key; ?>&q=<?= $map['address']; ?>&zoom=<?= $map['zoom']; ?>"></iframe>
+<?php endif; ?>

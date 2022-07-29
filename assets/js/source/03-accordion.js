@@ -4,7 +4,7 @@
 /**
  * Accordion
  */
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function(){
         if ( document.getElementsByClassName('accordion').length>0 ){
             [].forEach.call(document.querySelectorAll('.accordion__header'), function(item){
                 item.addEventListener('click', function(){

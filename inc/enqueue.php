@@ -22,7 +22,7 @@ function cs__styles(){
     wp_enqueue_style('themestyle');
     
     // Remove Contact form 7 styles
-    wp_dequeue_style( 'contact-form-7' );
+    wp_dequeue_style('contact-form-7');
 }
 
 
@@ -35,12 +35,12 @@ function cs__admin_styles(){
 
 
 // Load editor styling
-add_action( 'after_setup_theme', 'cs__editor_styles' );
-function cs__editor_styles() {
-    add_theme_support( 'editor-styles' );
-    add_editor_style( 'assets/css/build/editor.css' );
+add_action('after_setup_theme', 'cs__editor_styles');
+function cs__editor_styles(){
+    add_theme_support('editor-styles');
+    add_editor_style('assets/css/build/editor.css');
 }
 
 
 // Disable default WooCommerce stylesheets
-//add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+//add_filter('woocommerce_enqueue_styles', '__return_empty_array');

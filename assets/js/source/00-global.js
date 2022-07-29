@@ -14,7 +14,7 @@
     function isScrolled(){
         const scrollpos = window.scrollY;
     
-        if( scrollpos>10 ){
+        if ( scrollpos>10 ){
             document.body.classList.add('is-scrolled');
         }
         else {

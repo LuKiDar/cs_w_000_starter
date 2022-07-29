@@ -41,6 +41,10 @@ a {
             }
         }
     }
+
+    &:focus-visible {
+        box-shadow: 0px 0px 0px 2px $white, 0px 0px 0px 4px $dl_purple, 0px 0px 6px 5px rgba($dl_purple, .6);
+    }
 }
 hr {
     border-color: $general_borderColor;

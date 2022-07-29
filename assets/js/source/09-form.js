@@ -35,13 +35,13 @@
                 file.addEventListener('change', function(e){
                     let file_name = '';
 
-                    if( this.files && this.files.length>1 ){
-                        file_name = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                    if ( this.files && this.files.length>1 ){
+                        file_name = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
                     } else {
-                        file_name = e.target.value.split( '\\' ).pop();
+                        file_name = e.target.value.split('\\').pop();
                     }
 
-                    if( file_name ){
+                    if ( file_name ){
                         fileInput.classList.remove('placeholder');
                         fileInput.innerHTML = file_name;
                     } else {

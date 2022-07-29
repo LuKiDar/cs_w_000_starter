@@ -3,8 +3,8 @@
  * Gutenberg blocks
  */
 
-add_filter( 'block_categories', 'cs__register_block_categories', 10, 2);
-function cs__register_block_categories($categories, $post){
+add_filter('block_categories', 'cs__register_block_categories', 10, 2);
+function cs__register_block_categories( $categories, $post ){
 	return array_merge(
 		array(
 			array(

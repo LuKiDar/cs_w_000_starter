@@ -1,6 +1,6 @@
 <?php /*** Tabs ***/ ?>
 
-<?php if( have_rows('tabs') ): ?>
+<?php if ( have_rows('tabs') ): ?>
     <div class="tabs">
         <nav class="tabs__header">
             <?php $i=0; while ( have_rows('tabs') ): the_row(); $i++;
@@ -66,7 +66,7 @@
     </figure>
 <?php } ?>
 
-<?php if( !empty($image) ){ ?>
+<?php if ( !empty($image) ){ ?>
     <figure class="section-banner__media-wrap">
         <picture class="section-banner__image">
             <source media="(max-width: 1024px)" srcset="<?= $image['sizes']['large']; ?>">
@@ -139,13 +139,13 @@ function cs__remove_draft_widget(){
 
 <?php /*** Social networks ***/ ?>
 
-<?php if( have_rows('social_networks', 'options') ): ?>
+<?php if ( have_rows('social_networks', 'options') ): ?>
     <ul class="social-networks-menu">
         <?php while ( have_rows('social_networks', 'options') ): the_row();
             $name = get_sub_field('name');
             $url = get_sub_field('url'); ?>
 
-            <?php if( $name!='' && $url!='' ){ ?>
+            <?php if ( $name!='' && $url!='' ){ ?>
                 <li class="social-networks-menu__item">
                     <a class="social-networks-menu__icon social-networks-menu__icon--<?= $name; ?>" href="<?= $url; ?>" aria-label="<?= $name; ?> - link opens in a new tab" rel="noopener noreferrer" target="_blank" title="<?= $name; ?>"></a>
                 </li>

@@ -1,7 +1,7 @@
-(function () {
+(function (){
     'use strict';
 
-    module.exports = function(grunt) {
+    module.exports = function(grunt){
         require('load-grunt-tasks')(grunt);
         grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
@@ -27,7 +27,7 @@
             
             /*** JS Validation ***/
             jshint: {
-                all: [ 'Gruntfile.js', 'js/source/*.js' ],
+                all: ['Gruntfile.js', 'js/source/*.js'],
                 options: {
                     "bitwise": true,
                     "browser": true,
@@ -67,7 +67,7 @@
             /*** JS minification ***/
             uglify: {
                 dist: {
-                    files: { 'js/build/global.js': ['js/build/global.js'] }
+                    files: {'js/build/global.js': ['js/build/global.js']}
                 }
             },
 

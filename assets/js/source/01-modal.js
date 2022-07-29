@@ -49,8 +49,8 @@
                 item.addEventListener('click', function(event){
                     event.preventDefault();
 
-                    openModal( item.dataset.modal );
-                    closeModal( item.dataset.modal );
+                    openModal(item.dataset.modal);
+                    closeModal(item.dataset.modal);
                 });
             });
         }

@@ -117,3 +117,6 @@ $header_logoWidth: (
 );
 $header_boxShadow: 0px 4px 16px rgba(2, 82, 140, 0.1);
 $header_menuTransition: .4s;
+
+// Focus
+$focus_default: 0px 0px 0px 2px $white, 0px 0px 0px 4px $focus, 0px 0px 6px 5px rgba($focus, .6);

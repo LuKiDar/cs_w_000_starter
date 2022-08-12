@@ -45,7 +45,7 @@
             }
         }
 
-        &--active {
+        &.is-active {
             &::after {
                 opacity: 0;
             }

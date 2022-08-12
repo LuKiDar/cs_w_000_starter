@@ -21,7 +21,7 @@
             padding: 10px 20px;
             text-align: center;
 
-            &--active {
+            &.is-active {
                 background: $light_gray;
                 color: $black;
                 pointer-events: none;
@@ -55,7 +55,7 @@
                 width: 2px;
             }
 
-            &--active {
+            &.is-active {
                 color: $black;
 
                 &::after {
@@ -86,7 +86,7 @@
             padding: 5px #{$gutter} 15px;
         }
 
-        &:not(&--active){
+        &:not(&.is-active){
             display: none;
         }
     }

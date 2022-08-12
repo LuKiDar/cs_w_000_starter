@@ -16,12 +16,12 @@
 
                     let currentContent = currentItem.nextElementSibling;
 
-                    currentItem.classList.toggle('accordion__header--active');
-                    if ( !currentContent.classList.contains('accordion__content--active') ){
-                        currentContent.classList.add('accordion__content--active');
+                    currentItem.classList.toggle('is-active');
+                    if ( !currentContent.classList.contains('is-active') ){
+                        currentContent.classList.add('is-active');
                         currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
                     } else {
-                        currentContent.classList.remove('accordion__content--active');
+                        currentContent.classList.remove('is-active');
                         currentContent.style.maxHeight = null;
                     }
                 });

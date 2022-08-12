@@ -95,7 +95,7 @@
     top: 0;
     z-index: 1000;
 
-    &:not(&--active) {
+    &:not(&.is-active) {
         display: none;
     }
     body.admin-bar & {

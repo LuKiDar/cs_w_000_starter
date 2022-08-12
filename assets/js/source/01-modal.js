@@ -8,7 +8,7 @@
     function openModal(modalID){
         if ( document.getElementById(modalID) ){
             document.body.classList.add('modal-active');
-            document.getElementById(modalID).classList.add('modal-container--active');
+            document.getElementById(modalID).classList.add('is-active');
         }
     }
 
@@ -17,7 +17,7 @@
         [].forEach.call(document.querySelectorAll('#'+ modalID +' .modal__close-button'), function(item){
             item.addEventListener('click', function(event){
                 document.body.classList.remove('modal-active');
-                document.getElementById(modalID).classList.remove('modal-container--active');
+                document.getElementById(modalID).classList.remove('is-active');
 
                 if ( removeModal ){
                     setTimeout(function(){
@@ -31,7 +31,7 @@
         document.getElementById(modalID).addEventListener('click', function(event){
             if ( event.target.id===modalID){
                 document.body.classList.remove('modal-active');
-                document.getElementById(modalID).classList.remove('modal-container--active');
+                document.getElementById(modalID).classList.remove('is-active');
                 
                 if ( removeModal ){
                     setTimeout(function(){

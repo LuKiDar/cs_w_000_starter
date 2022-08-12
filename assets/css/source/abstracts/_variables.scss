@@ -57,37 +57,43 @@ $h1: (
     default: (
 		'font-size': rem(48),
 		'line-height': 1.3
-	)
+	),
+    $mobileBreakpoint: ()
 );
 $h2: (
     default: (
 		'font-size': rem(42),
 		'line-height': 1.3
-	)
+	),
+    $mobileBreakpoint: ()
 );
 $h3: (
     default: (
 		'font-size': rem(32),
 		'line-height': 1.3
-	)
+	),
+    $mobileBreakpoint: ()
 );
 $h4: (
     default: (
 		'font-size': rem(24),
 		'line-height': 1.3
-	)
+	),
+    $mobileBreakpoint: ()
 );
 $h5: (
     default: (
 		'font-size': rem(21),
 		'line-height': 1.3
-	)
+	),
+    $mobileBreakpoint: ()
 );
 $h6: (
     default: (
 		'font-size': rem(18),
 		'line-height': 1.3
-	)
+	),
+    $mobileBreakpoint: ()
 );
 $small: (
     'font-size': rem(14)
@@ -105,6 +111,9 @@ $animatedBlock_shift: 30px;
 
 
 // ************ Content *************
+// Focus
+$focus_default: 0px 0px 0px 2px $white, 0px 0px 0px 4px $focus, 0px 0px 6px 5px rgba($focus, .6);
+
 // Header
 $header_height: (
     default: 80px,
@@ -117,6 +126,3 @@ $header_logoWidth: (
 );
 $header_boxShadow: 0px 4px 16px rgba(2, 82, 140, 0.1);
 $header_menuTransition: .4s;
-
-// Focus
-$focus_default: 0px 0px 0px 2px $white, 0px 0px 0px 4px $focus, 0px 0px 6px 5px rgba($focus, .6);

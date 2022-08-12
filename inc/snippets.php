@@ -7,7 +7,7 @@
             $text = get_sub_field('text'); ?>
 
             <?php if ( $title!='' && $text!='' ){ ?>
-                <dt class="accordion__header"><?= $title; ?></dt>
+                <dt class="accordion__header" tabindex="0"><?= $title; ?></dt>
                 <dd class="accordion__content"><?= $text; ?></dd>
             <?php } ?>
         <?php endwhile; ?>

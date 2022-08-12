@@ -3,13 +3,13 @@
  */
 
 .accordion {
-    $a: &;
+    $c: &;
     
-    border-bottom: 2px solid $light_gray;
+    border-bottom: 1px solid $light_gray;
 
     &__header {
         background: $white;
-        border-top: 2px solid $light_gray;
+        border-top: 1px solid $light_gray;
         cursor: pointer;
         font-weight: $text_bold;
         margin: 0;
@@ -38,17 +38,19 @@
             width: 2px;
         }
 
-        &:hover,
-        &:focus-visible {
-            @include mediaMinWidth($mobileBreakpoint){
-                color: $dark_gray;
-            }
-        }
-
         &.is-active {
             &::after {
                 opacity: 0;
             }
+        }
+        &:hover {
+            @include mediaMinWidth($mobileBreakpoint){
+                color: $dark_gray;
+            }
+        }
+        &:focus-visible {
+            box-shadow: $focus_default;
+            z-index: 2;
         }
     }
     &__content {

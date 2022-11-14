@@ -101,7 +101,11 @@
     body.admin-bar & {
         top: 32px;
 
-        @include mediaMaxWidth(782px) { top: 46px; }
-        @include mediaMaxWidth(600px) { top: 0; }
+        @include mediaMaxWidth(782px) {
+            top: 46px;
+        }
+        @include mediaMaxWidth(600px) {
+            top: 0;
+        }
     }
 }

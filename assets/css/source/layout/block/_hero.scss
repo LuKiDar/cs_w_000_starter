@@ -1,0 +1,23 @@
+/**
+ * Block / Hero
+ */
+
+.block-hero {
+    $b: &;
+
+    body:not(.wp-admin) & {
+
+        &:first-child {
+            margin-top: #{-$default_page__padding_top};
+        }
+        &:last-child {
+            margin-bottom: #{-$default_page__padding_bottom};
+        }
+    }
+    .wp-block & {
+        #{$b}__media-wrap,
+        #{$b}__image {
+            display: block;
+        }
+    }
+}

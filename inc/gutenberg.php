@@ -1,9 +1,32 @@
 <?php
-/**
- * Gutenberg blocks
- */
+/*** Gutenberg / Allow wide alignment ***/
+add_theme_support('align-wide');
 
-add_filter('block_categories', 'cs__register_block_categories', 10, 2);
+/*** Gutenberg / Change color pallete ***/
+add_theme_support('disable-custom-colors');
+add_theme_support('editor-gradient-presets', []);
+add_theme_support('disable-custom-gradients');
+$colors = [
+    'Black' => '#000',
+    'Dark gray' => '#595959',
+    'Medium gray' => '#919191',
+    'Light gray' => '#F5F5F5',
+    'White' => '#FFF',
+];
+$editor_color_palette = [];
+foreach ( $colors as $name=>$value ){
+    $editor_color_palette[] = [
+        'name'  => esc_html__($name, CSWP),
+        'slug'  => str_replace(' ', '-', strtolower($name)),
+        'color' => $value,
+    ];
+}
+add_theme_support('editor-color-palette', $editor_color_palette);
+
+
+/*** Gutenberg / Register custom blocks ***/
+
+add_filter('block_categories_all', 'cs__register_block_categories', 10, 2);
 function cs__register_block_categories( $categories, $post ){
 	return array_merge(
 		array(
@@ -27,7 +50,7 @@ function cs__register_acf_block_types(){
         'title'				=> __('Hero'),
         'description'		=> __('A custom Hero block'),
         'render_template'	=> 'parts/block/hero.php',
-        'category'			=> 'dh-blocks',
+        'category'			=> 'custom-blocks',
         'icon'				=> 'cover-image',
         'keywords'			=> array('hero', 'content'),
         'mode'              => 'auto',
@@ -58,7 +81,7 @@ function cs__register_acf_block_types(){
         'title'				=> __('Tabs'),
         'description'		=> __('A custom block for Tabs'),
         'render_template'	=> 'parts/block/tabs.php',
-        'category'			=> 'vista-blocks',
+        'category'			=> 'custom-blocks',
         'icon'				=> 'excerpt-view',
         'keywords'			=> array('tabs', 'content'),
     ));

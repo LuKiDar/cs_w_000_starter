@@ -30,9 +30,9 @@ html {
     height: 100%;
     line-height: $general_lineHeight;
 
-    @include mediaMaxWidth($mobileBreakpoint){
-        font-size: 14px;
-    }
+    // @include mediaMaxWidth($mobileBreakpoint){
+    //     font-size: 14px;
+    // }
 }
 body {
     overflow-x: hidden;
@@ -84,17 +84,21 @@ body {
     body.admin-bar & {
         min-height: calc(100vh - 32px);
 
-        @media screen and (max-width: 782px) { min-height: calc(100vh - 46px); }
-        @media screen and (max-width: 600px) { min-height: 100vh; }
+        @include mediaMaxWidth(782){
+            min-height: calc(100vh - 46px);
+        }
+        @include mediaMaxWidth(600){
+            min-height: 100vh;
+        }
     }
 }
 .main {
     overflow: hidden;
 }
-.scrollbar-measure {
-    height: 100px;
-    overflow: scroll;
-    position: absolute;
-    top: -9999px;
-    width: 100px;
-}
+// .scrollbar-measure {
+//     height: 100px;
+//     overflow: scroll;
+//     position: absolute;
+//     top: -9999px;
+//     width: 100px;
+// }

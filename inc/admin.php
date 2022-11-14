@@ -51,23 +51,59 @@ function cs__hide_editor_for_pages(){
 }
 
 
-
 /*** TinyMCE: add style selector ***/
-// add_filter('mce_buttons_2', 'cs__mce_add_more_buttons');
-// function cs__mce_add_more_buttons( $buttons ){
-	// $buttons[] = 'styleselect';
-	// return $buttons;
-// }
+add_filter('mce_buttons_2', 'cs__mce_add_more_buttons');
+function cs__mce_add_more_buttons( $buttons ){
+	$buttons[] = 'styleselect';
+	return $buttons;
+}
  
-// add_filter('tiny_mce_before_init', 'cs__mce_before_init');
-// function cs__mce_before_init( $settings ){
+add_filter('tiny_mce_before_init', 'cs__mce_before_init');
+function cs__mce_before_init( $settings ){
+    $textcolor_map = array(
+        '000', 'Black',
+        '595959', 'Dark gray',
+        '919191', 'Medium gray',
+        'F5F5F5', 'Light gray',
+        'FFF', 'White',
+    );
     // $style_formats = array(
-        // array(
-            // 'title' => 'Highlighted link',
-            // 'selector' => 'a',
-            // 'classes' => 'link-highlighted'
-        // )
+    //     array(
+    //         'title' => 'Buttons',
+    //         'items' => array(
+    //             [
+    //                 'title' => 'Default button',
+    //                 'selector' => 'a',
+    //                 'classes' => 'button--fill'
+    //             ],
+    //             [
+    //                 'title' => 'Outlined button',
+    //                 'selector' => 'a',
+    //                 'classes' => 'button--outline'
+    //             ],
+    //             [
+    //                 'title' => 'White button',
+    //                 'selector' => 'a',
+    //                 'classes' => 'button--fill-white'
+    //             ],
+    //         )
+    //     )
     // );
+    $settings['textcolor_cols'] = 6;
+    $settings['textcolor_map'] = json_encode($textcolor_map);
     // $settings['style_formats'] = json_encode($style_formats);
-    // return $settings;
-// }
+    return $settings;
+}
+
+
+/*** TinyMCE: remove the Color Picker plugin ***/
+add_filter('tiny_mce_plugins', 'cs__mce_remove_custom_colors');
+function cs__mce_remove_custom_colors( $plugins ){
+    foreach ( $plugins as $key=>$plugin_name ){
+        if ( $plugin_name==='colorpicker' ){
+            unset($plugins[$key]);
+            return $plugins;            
+        }
+    }
+    return $plugins;
+}

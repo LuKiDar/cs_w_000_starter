@@ -80,7 +80,9 @@
     body.admin-bar & {
         top: 32px;
 
-        @media screen and (max-width: 782px){ top: 46px; }
+        @include mediaMaxWidth(782){
+            top: 46px;
+        }
     }
     body.menu-active & {
         #{$h}__menu {
@@ -107,7 +109,7 @@
         }
     }
     body.is-scrolled & {
-        @media screen and (max-width: 600px){
+        @include mediaMaxWidth(600){
             top: 0 !important;
         }
     }
@@ -116,8 +118,10 @@
 .toggle {
     background: transparent;
     border: none;
+    font-size: 0;
     height: 17px;
     position: relative;
+    text-indent: -9999px;
     width: 24px;
     
     &::before,

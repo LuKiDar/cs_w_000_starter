@@ -4,7 +4,17 @@
 
 .footer {
     background: $dark_gray;
+    color: $white;
     margin-top: auto; /* sticky footer */
     padding: $gutter 0;
     width: 100%;
+
+    &__container {
+        @include mediaBetween(xs,sm){
+            max-width: #{700px + $gutter};
+        }
+        @include mediaMaxWidth(xs){
+            max-width: #{350px + $gutter};
+        }
+    }
 }

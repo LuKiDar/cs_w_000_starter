@@ -13,20 +13,24 @@ body {
     font-size: $general_fontSize;
     line-height: $general_lineHeight;
 }
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+// *, *::before, *::after {
+//     box-sizing: border-box;
+// }
 p {
     color: inherit;
     margin: 0 0 $general_margin;
 
-    &:last-child { margin-bottom: 0 !important; }
+    &:last-child {
+        margin-bottom: 0 !important;
+    }
 }
 a {
     transition: all $global_transition;
     
     &::before,
-    &::after { transition: all $global_transition; }
+    &::after {
+        transition: all $global_transition;
+    }
 
     &:not([class]),
     &[class=""] {
@@ -36,6 +40,18 @@ a {
         &:focus {
             @include mediaMinWidth($mobileBreakpoint){
                 color: $general_linkColorHover;
+            }
+        }
+    }
+    &.builtin {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            @include mediaMinWidth($mobileBreakpoint){
+                color: inherit;
+                text-decoration: underline;
             }
         }
     }
@@ -84,21 +100,51 @@ ol, ul {
         margin-top: $general_margin/2;
     }
     li {
-        margin: 0;
+        margin: 0 0 10px;
     }
 }
 dl {
     margin-bottom: $general_margin;
     margin-top: $general_margin;
 
-    dt { margin: $general_margin/2 0; }
+    dt {
+        margin: $general_margin/2 0;
+    }
     dd {
         margin: 0 0 0 $general_margin*2;
     }
 }
 
 
-/*** Colors ***/
+/*** WP blocks ***/
+// General
+html {
+    .edit-post-visual-editor__post-title-wrapper > .wp-block,
+    .block-editor-block-list__layout.is-root-container > .wp-block,
+        .block-editor-block-list__layout.is-root-container > .wp-block.is-reusable > * > .wp-block {
+        &, *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        & {
+            max-width: min( calc(100vw - 2rem), 80rem);
+        }
+        &[data-align=wide] {
+            max-width: min( calc(100vw - 2rem), 90rem);
+        }
+        &[data-align=full] {
+            max-width: none;
+            margin-left: -24px;
+            margin-right: -24px;
+        }
+    }
+    .edit-post-visual-editor__post-title-wrapper {
+        margin-bottom: 30px;
+        margin-top: 2rem;
+    }
+}
+
+// Colors
 @each $itemName, $itemValue in $color_chart {
     .has-#{$itemName}-background-color {
         background-color: #{$itemValue};

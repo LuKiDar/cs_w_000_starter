@@ -5,7 +5,7 @@
 
 function cs__the_breadcrumbs( $modifier='' ){
     $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
-    $delimiter = '<i class="breadcrumbs__delimeter">&raquo;</i>'; // delimiter between crumbs
+    $delimiter = '<i class="breadcrumbs__delimiter">&raquo;</i>'; // delimiter between crumbs
     $home = 'Home'; // text for the 'Home' link
     $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
     $beforeCurrent = '<span class="breadcrumbs__current">'; // tag before the current crumb

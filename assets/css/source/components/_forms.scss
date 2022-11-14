@@ -2,100 +2,100 @@
  * Buttons
  */
 
-%btn {
-    @include getStyles($small);
-    border: none;
-    border-radius: 1px;
-    cursor: pointer;
-    display: inline-block;
-    line-height: $general_lineHeight;
-    min-width: 170px;
-    padding: 10px 20px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: background $global_transition, color $global_transition;
+// %btn {
+//     @include getStyles($small);
+//     border: none;
+//     border-radius: 1px;
+//     cursor: pointer;
+//     display: inline-block;
+//     line-height: $general_lineHeight;
+//     min-width: 170px;
+//     padding: 10px 20px;
+//     position: relative;
+//     text-align: center;
+//     text-decoration: none;
+//     transition: background $global_transition, color $global_transition;
     
-    &::after {
-        background-color: rgba($white, .1);
-        border-radius: 100%;
-        content: '';
-        height: 0px;
-        left: 50%;
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition: all $global_transition;
-        width: 0px;
-    }
-}
-.button {
-    @extend %btn;
+//     &::after {
+//         background-color: rgba($white, .1);
+//         border-radius: 100%;
+//         content: '';
+//         height: 0px;
+//         left: 50%;
+//         opacity: 0;
+//         position: absolute;
+//         top: 50%;
+//         transform: translate(-50%, -50%);
+//         transition: all $global_transition;
+//         width: 0px;
+//     }
+// }
+// .button {
+//     @extend %btn;
 
-    &:not(&--transparent):not(&--file) {
-        background: $general_color;
-        color: $white;
+//     &:not(&--transparent):not(&--file) {
+//         background: $general_color;
+//         color: $white;
 
-        &:hover,
-        &:focus {
-            @include mediaMinWidth($mobileBreakpoint){
-                background-color: lighten($general_color, 7.5);
-                color: $white;
-            }
-        }
-    }
-    &--transparent {
-        background: transparent;
-        color: inherit;
+//         &:hover,
+//         &:focus {
+//             @include mediaMinWidth($mobileBreakpoint){
+//                 background-color: lighten($general_color, 7.5);
+//                 color: $white;
+//             }
+//         }
+//     }
+//     &--transparent {
+//         background: transparent;
+//         color: inherit;
 
-        &:hover,
-        &:focus {
-            @include mediaMinWidth($mobileBreakpoint){
-                background-color: lighten($general_color, 7.5);
-                color: $white;
-            }
-        }
-    }
-    &--file {
-        background-color: $light_gray;
-        color: $general_color;
+//         &:hover,
+//         &:focus {
+//             @include mediaMinWidth($mobileBreakpoint){
+//                 background-color: lighten($general_color, 7.5);
+//                 color: $white;
+//             }
+//         }
+//     }
+//     &--file {
+//         background-color: $light_gray;
+//         color: $general_color;
 
-        &:hover,
-        &:focus {
-            @include mediaMinWidth($mobileBreakpoint){
-                background-color: lighten($general_color, 7.5);
-                color: $white;
-            }
-        }
-    }
-	&[disabled],
-	&.disabled {
-		background-color: $medium_gray !important;
-		color: $white !important;
-        cursor: not-allowed;
-        outline: none !important;
+//         &:hover,
+//         &:focus {
+//             @include mediaMinWidth($mobileBreakpoint){
+//                 background-color: lighten($general_color, 7.5);
+//                 color: $white;
+//             }
+//         }
+//     }
+// 	&[disabled],
+// 	&.disabled {
+// 		background-color: $medium_gray !important;
+// 		color: $white !important;
+//         cursor: not-allowed;
+//         outline: none !important;
 
-        &::after {
-            content: none;
-        }
-	}
+//         &::after {
+//             content: none;
+//         }
+// 	}
 
-    &:focus {
-        @include mediaMinWidth($mobileBreakpoint){
-            outline: 3px solid $focus;
-        }
-    }
-    &:active {
-        @include mediaMinWidth($mobileBreakpoint){
-            &::after {
-                height: 100px;
-                opacity: 1;
-                width: 100px;
-            }
-        }
-    }
-}
+//     &:focus {
+//         @include mediaMinWidth($mobileBreakpoint){
+//             outline: 3px solid $focus;
+//         }
+//     }
+//     &:active {
+//         @include mediaMinWidth($mobileBreakpoint){
+//             &::after {
+//                 height: 100px;
+//                 opacity: 1;
+//                 width: 100px;
+//             }
+//         }
+//     }
+// }
 
 
 /**
@@ -119,15 +119,14 @@
 textarea,
 select {
     background-color: transparent;
-    border: none;
-    border-bottom-color: $general_borderColor;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+    border: 1px solid $general_borderColor;
     border-radius: 0;
     color: $general_color;
     display: block;
+    font-size: 1rem;
+    line-height: $general_lineHeight;
     outline: none;
-    padding: 10px 10px;
+    padding: 12px 10px;
     transition: color $global_transition;
     width: 100%;
 
@@ -138,7 +137,6 @@ select {
     &[multiple] {
         height: auto;
     }
-
     &[disabled], &.disabled {
         border-bottom-color: $medium_gray;
         cursor: default;
@@ -148,15 +146,15 @@ select {
     &:focus {
 
     }
-    &:focus {
+    &:focus-visible {
         @include mediaMinWidth($mobileBreakpoint){
-            outline: 2px solid $focus;
+            box-shadow: $focus_default;
         }
     }
 }
 select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3875 0.852462C11.3875 0.477462 11.0865 0.166748 10.7232 0.166748L1.42434 0.166748C1.0611 0.166748 0.760132 0.477462 0.760132 0.852462C0.760132 1.0346 0.83278 1.20603 0.957319 1.3346L5.60677 6.1346C5.73131 6.26317 5.89736 6.33817 6.07379 6.33817C6.25022 6.33817 6.41628 6.26317 6.54082 6.1346L11.1903 1.3346C11.3148 1.20603 11.3875 1.0346 11.3875 0.852462Z' fill='%2324323D'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='"+ encodecolor($dark_gray) +"' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3875 0.852462C11.3875 0.477462 11.0865 0.166748 10.7232 0.166748L1.42434 0.166748C1.0611 0.166748 0.760132 0.477462 0.760132 0.852462C0.760132 1.0346 0.83278 1.20603 0.957319 1.3346L5.60677 6.1346C5.73131 6.26317 5.89736 6.33817 6.07379 6.33817C6.25022 6.33817 6.41628 6.26317 6.54082 6.1346L11.1903 1.3346C11.3148 1.20603 11.3875 1.0346 11.3875 0.852462Z' fill='%2324323D'/%3E%3C/svg%3E%0A");
     background-position: calc(100% - 10px) calc(50% + 2px);
     background-repeat: no-repeat;
     background-size: 12px 8px;
@@ -166,7 +164,6 @@ select {
     &::-ms-expand {
         display: none;
     }
-
     &[multiple] {
         background-image: none;
     }
@@ -186,13 +183,19 @@ textarea {
  * Form
  */
  .form {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 #{-$gutter/2};
+
     &__field {
         flex: 0 0 100%;
         max-width: 100%;
-        padding: 12px #{$gutter/2};
+        padding: 10px #{$gutter/2};
         position: relative;
 
-        br { display: none !important; }
+        br {
+            display: none !important;
+        }
 
         &--half {
             @include mediaMinWidth(sm){
@@ -219,108 +222,103 @@ textarea {
         display: block;
         margin: 0 0 5px;
     }
-    &__file {
-        $file: &;
+    // &__file {
+    //     $file: &;
         
-        bottom: 0;
-        cursor: pointer;
-        left: 0;
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        z-index: 5;
+    //     bottom: 0;
+    //     cursor: pointer;
+    //     left: 0;
+    //     opacity: 0;
+    //     position: absolute;
+    //     right: 0;
+    //     top: 0;
+    //     width: 100%;
+    //     z-index: 5;
 
-        &,
-        &-input,
-        &-button {
-            pointer-events: none;
-        }
-        &-wrap {
-            cursor: pointer;
-            display: flex;
-            flex-flow: row nowrap;
-            position: relative;
+    //     &,
+    //     &-input,
+    //     &-button {
+    //         pointer-events: none;
+    //     }
+    //     &-wrap {
+    //         cursor: pointer;
+    //         display: flex;
+    //         flex-flow: row nowrap;
+    //         position: relative;
 
-            @include mediaMaxWidth(xs){
-                flex-flow: row wrap;
-            }
+    //         @include mediaMaxWidth(xs){
+    //             flex-flow: row wrap;
+    //         }
 
-            &:hover,
-            &:focus {
-                #{$file}-button {
-                    @include mediaMinWidth($mobileBreakpoint){
-                        background-color: lighten($focus, 5.75);
-                        color: $white;
-                    }
-                }
-            }
-            &:focus {
-                #{$file}-button {
-                    @include mediaMinWidth($mobileBreakpoint){
-                        outline: 4px solid $focus;
-                    }
-                }
-            }
-            &:active {
-                #{$file}-button {
-                    @include mediaMinWidth($mobileBreakpoint){
-                        &::after {
-                            height: 116px;
-                            opacity: 1;
-                            width: 116px;
-                        }
-                    }
-                }
-            }
-        }
-        &-input,
-        &-button {
-            @include mediaMinWidth(xs){
-                flex: 0 0 calc(50% - #{$gutter/2});
-                width: calc(50% - #{$gutter/2});
-            }
-            @include mediaMaxWidth(xs){
-                flex: 0 0 100%;
-                width: 100%;
-            }
-        }
-        &-input {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+    //         &:hover,
+    //         &:focus {
+    //             #{$file}-button {
+    //                 @include mediaMinWidth($mobileBreakpoint){
+    //                     background-color: lighten($focus, 5.75);
+    //                     color: $white;
+    //                 }
+    //             }
+    //         }
+    //         &:focus {
+    //             #{$file}-button {
+    //                 @include mediaMinWidth($mobileBreakpoint){
+    //                     outline: 4px solid $focus;
+    //                 }
+    //             }
+    //         }
+    //         &:active {
+    //             #{$file}-button {
+    //                 @include mediaMinWidth($mobileBreakpoint){
+    //                     &::after {
+    //                         height: 116px;
+    //                         opacity: 1;
+    //                         width: 116px;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     &-input,
+    //     &-button {
+    //         @include mediaMinWidth(xs){
+    //             flex: 0 0 calc(50% - #{$gutter/2});
+    //             width: calc(50% - #{$gutter/2});
+    //         }
+    //         @include mediaMaxWidth(xs){
+    //             flex: 0 0 100%;
+    //             width: 100%;
+    //         }
+    //     }
+    //     &-input {
+    //         overflow: hidden;
+    //         text-overflow: ellipsis;
+    //         white-space: nowrap;
 
-            @include mediaMinWidth(xs){
-                margin-right: $gutter;
-            }
-            @include mediaMaxWidth(xs){
-                margin: 0 0 20px;
-            }
-        }
-        &-button {
-            min-width: 0;
-        }
+    //         @include mediaMinWidth(xs){
+    //             margin-right: $gutter;
+    //         }
+    //         @include mediaMaxWidth(xs){
+    //             margin: 0 0 20px;
+    //         }
+    //     }
+    //     &-button {
+    //         min-width: 0;
+    //     }
 
-        &:focus ~ &-button {
-            @include mediaMinWidth($mobileBreakpoint){
-                background-color: lighten($focus, 5.75);
-                color: $white;
-                outline: 4px solid $focus;
-            }
-        }
-    }
+    //     &:focus ~ &-button {
+    //         @include mediaMinWidth($mobileBreakpoint){
+    //             background-color: lighten($focus, 5.75);
+    //             color: $white;
+    //             outline: 4px solid $focus;
+    //         }
+    //     }
+    // }
 }
 
 /**
  * Contact form 7
  */
 .wpcf7 {
-    .wpcf7-form {
-        display: flex;
-        flex-flow: row wrap;
-        margin: 0 #{-$gutter/2};
-    }
     .wpcf7-form-control-wrap {
         display: block;
     }
@@ -432,7 +430,7 @@ textarea {
             }
         }
     }
-    .ajax-loader {
+    .wpcf7-spinner {
         align-items: center;
         background-color: $focus;
         bottom: #{$gutter/2};
@@ -515,9 +513,7 @@ textarea {
     .wpcf7-response-output {
         background-color: $light_gray; // #F5F7FA, gray
         border-top: 4px solid $focus; // #4FC1E9, blue
-        flex: 0 0 calc(100% - #{$gutter});
-        margin: 15px #{$gutter/2} 0;
-        max-width: calc(100% - #{$gutter});
+        margin: 15px 0 0;
         padding: #{$gutter/2} #{$gutter/2} #{$gutter/2} #{$gutter + 20px};
         position: relative;
 
@@ -543,7 +539,7 @@ textarea {
         &.submitting .wpcf7-response-output {
             display: none;
         }
-        &.submitting .ajax-loader {
+        &.submitting .wpcf7-spinner {
             opacity: 1;
             visibility: visible;
         }

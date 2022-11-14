@@ -23,40 +23,6 @@ if ( function_exists('add_theme_support') ){
         'flex-width'  => true,
     ));
 
-    // Gutenberg: change color pallete
-	add_theme_support('disable-custom-colors');
-	add_theme_support('editor-gradient-presets', []);
-    add_theme_support('disable-custom-gradients');
-    add_theme_support('editor-color-palette',
-		[
-			[
-				'name'  => esc_html__('Black', CSWP),
-				'slug'  => 'black',
-				'color' => '#323133',
-			],
-			[
-				'name'  => esc_html__('Dark gray', CSWP),
-				'slug'  => 'dark-gray',
-				'color' => '#434A54',
-			],
-			[
-				'name'  => esc_html__('Medium gray', CSWP),
-				'slug'  => 'medium-gray',
-				'color' => '#CCD1D9',
-			],
-			[
-				'name'  => esc_html__('Light Gray', CSWP),
-				'slug'  => 'light-gray',
-				'color' => '#F5F7FA',
-			],
-			[
-				'name'  => esc_html__('White', CSWP),
-				'slug'  => 'white',
-				'color' => '#fefefe',
-			]
-		]
-	);
-
     // Add WooCommerce support
     //add_theme_support('woocommerce');
 
@@ -216,5 +182,5 @@ include_once 'inc/post-types.php';
 include_once 'inc/acf-config.php';
 // Admin
 include_once 'inc/admin.php';
-// Gutenberg blocks
-//include_once 'inc/gutenberg-blocks.php';
+// Gutenberg
+//include_once 'inc/gutenberg.php';

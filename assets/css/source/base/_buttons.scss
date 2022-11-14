@@ -1,0 +1,86 @@
+/**
+ * Buttons 
+ */
+
+%btn {
+    // @include getStyles($small);
+    border: 2px solid transparent;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: $text_bold;
+    line-height: $general_lineHeight;
+    min-width: 170px;
+    padding: 11px 23px !important;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background $global_transition, border-color $global_transition, box-shadow $global_transition, color $global_transition;
+
+    &[disabled],
+    &.disabled {
+        background-color: $light_gray !important;
+        border-color: $light_gray !important;
+        box-shadow: none !important;
+        color: $white !important;
+        cursor: not-allowed;
+        outline: none !important;
+        text-decoration: none !important;
+    }
+
+    &:focus-visible {
+        box-shadow: $focus_default;
+    }
+}
+
+.button--fill,
+.button--outline,
+.wp-block-button__link {
+    @extend %btn;
+}
+
+// Fill
+.button--fill,
+*:not(.is-style-outline) > .wp-block-button__link:not(.is-style-outline),
+.wp-block-button.is-style-fill>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-fill:not(.has-background) {
+    background: $general_color;
+    border-color: $general_color;
+    color: $white;
+
+    &:hover {
+        @include mediaMinWidth($mobileBreakpoint){
+            background: transparent;
+            border-color: $general_color;
+            color: $general_color;
+        }
+    }
+    &:focus-visible {
+        background: transparent;
+        border-color: $general_color;
+        color: $general_color;
+    }
+}
+
+// Outline
+.button--outline,
+.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-outline:not(.has-background) {
+    background: transparent;
+    border-color: $general_color;
+    color: $general_color;
+
+    &:hover {
+        @include mediaMinWidth($mobileBreakpoint){
+            background: transparent;
+            border-color: $black;
+            color: $black;
+        }
+    }
+    &:focus-visible {
+        background: transparent;
+        border-color: $black;
+        color: $black;
+    }
+}

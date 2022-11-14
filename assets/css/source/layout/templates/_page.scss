@@ -3,8 +3,19 @@
  */
 
 .default-page {
-    padding-bottom: 60px;
-    padding-top: 75px;
+    padding-bottom: $default_page__padding_bottom;
+    padding-top: $default_page__padding_top;
+
+    @include mediaMaxWidth(md){
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @include mediaBetween(xs,md){
+        max-width: #{700px + $gutter};
+    }
+    @include mediaMaxWidth(xs){
+        max-width: #{350px + $gutter};
+    }
 
     &__header {
         margin-bottom: 60px;

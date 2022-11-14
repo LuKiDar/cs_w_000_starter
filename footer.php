@@ -1,7 +1,7 @@
         </main>
 
         <footer id="footer" class="footer">
-            <div class="container">
+            <div class="footer__container container">
                 <div class="col">
                     <?php wp_nav_menu(array(
                         'menu' => 'footer-menu',

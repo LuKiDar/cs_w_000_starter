@@ -1,4 +1,7 @@
 wp.domReady(()=>{
+	// Unregister button styles
+	wp.blocks.unregisterBlockStyle('core/button', 'outline');
+
 	// Register button styles
 	// const buttons_styles = [
 	// 	{

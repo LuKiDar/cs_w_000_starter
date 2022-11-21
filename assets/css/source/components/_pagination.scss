@@ -31,6 +31,17 @@
         &.prev,
         &.next {
             padding: 5px 10px;
+
+            &.disabled {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        &.prev {
+            margin-right: auto;
+        }
+        &.next {
+            margin-left: auto;
         }
         &.current {
             background: $general_color;

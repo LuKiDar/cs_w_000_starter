@@ -184,3 +184,5 @@ include_once 'inc/acf-config.php';
 include_once 'inc/admin.php';
 // Gutenberg
 //include_once 'inc/gutenberg.php';
+// Pagination
+include_once 'inc/pagination.php';

@@ -19,10 +19,11 @@ $html_fontSize: 16px;
 /************ Components ************/
 // @import 'components/accordion';
 @import 'components/animations';
+@import 'components/feed-categories';
 @import 'components/forms';
 // @import 'components/modal';
 @import 'components/navigation';
-// @import 'components/pagination';
+@import 'components/pagination';
 // @import 'components/tabs';
 
 
@@ -31,7 +32,7 @@ $html_fontSize: 16px;
 @import 'layout/footer';
 
 // Content
-@import 'layout/content/post';
+@import 'layout/content/post-card';
 
 // Blocks
 @import 'layout/block/hero';

@@ -1,8 +1,8 @@
 /**
- * Content / Post
+ * Content / Post card
  */
 
-.post {
+.post-card {
     $c: &;
 
     &__media-wrap {
@@ -46,14 +46,11 @@
         top: 0;
         z-index: 5;
     }
-    &__title {
-        margin: 0 0 5px;
-    }
     &__meta {
         @include getStyles($small);
         color: $medium_gray;
         list-style: none;
-        margin: 0 0 15px;
+        margin: 0 0 5px;
         padding: 0;
 
         li {
@@ -68,14 +65,11 @@
                 content: none;
             }
         }
-    }
-    &__excerpt {
-        margin: 30px 0 15px;
     }
     &__tags {
         @include getStyles($small);
         list-style: none;
-        margin: 0 0 15px;
+        margin: 0 0 5px;
         padding: 0;
 
         li {
@@ -90,6 +84,12 @@
                 content: none;
             }
         }
+    }
+    &__title {
+        margin: 0 0 15px;
+    }
+    &__excerpt {
+        margin: 20px 0 15px;
     }
     &__navigation {
         margin: 30px 0 0;

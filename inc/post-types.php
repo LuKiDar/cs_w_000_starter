@@ -64,11 +64,12 @@ function cs__register_post_types(){
     ));
     $cpt_args = array_merge($default_cpt_args, array(
         'labels'             => $cpt_labels,
-        'supports'           => array('title', 'thumbnail'),
-        'rewrite'            => array('slug' => $cpt_slug, 'with_front' => true),
         'menu_icon'          => 'dashicons-cart',
         'publicly_queryable' => false,
-        'taxonomies'         => array('fruit'),
+        'rewrite'            => array('slug' => $cpt_slug, 'with_front' => true),
+        'show_in_rest'       => true,
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        // 'taxonomies'         => array('example_tax'),
     ));
     register_post_type($cpt_slug, $cpt_args);
     
@@ -89,7 +90,7 @@ function cs__register_taxonomies(){
      * Taxonomy: example
      * Associated CPT: example cpt
      */
-    /*$tax_slug = 'example';
+    /*$tax_slug = 'example_tax';
     $tax_label = array (
         'single' => 'example',
         'plural' => 'examples'
@@ -107,13 +108,15 @@ function cs__register_taxonomies(){
     $tax_args = array(
         'hierarchical'      => true,
         'labels'            => $tax_labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
+        'public'            => true,
         'rewrite'           => array('slug' => $tax_slug),
+        'show_admin_column' => true,
+        'show_in_rest'      => true,
+        'show_ui'           => true,
+        'query_var'         => true,
     );
  
-    register_taxonomy($tax_slug, array('product'), $tax_args);
+    register_taxonomy($tax_slug, array('example'), $tax_args);
 
     unset($tax_label);
     unset($tax_labels);

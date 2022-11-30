@@ -49,7 +49,7 @@ function cs__register_post_types(){
     /**
      * Post Type: example
      */
-    /*$cpt_slug = 'example';
+    /*$cpt_slug = 'example_cpt';
     $cpt_label = array (
         'single' => 'example',
         'plural' => 'examples'
@@ -66,10 +66,10 @@ function cs__register_post_types(){
         'labels'             => $cpt_labels,
         'menu_icon'          => 'dashicons-cart',
         'publicly_queryable' => false,
-        'rewrite'            => array('slug' => $cpt_slug, 'with_front' => true),
+        'rewrite'            => array('slug' => str_replace('_', '-', $cpt_slug), 'with_front' => true),
         'show_in_rest'       => true,
         'supports'           => array('title', 'editor', 'thumbnail'),
-        // 'taxonomies'         => array('example_tax'),
+        'taxonomies'         => array('example_tax'),
     ));
     register_post_type($cpt_slug, $cpt_args);
     
@@ -109,14 +109,14 @@ function cs__register_taxonomies(){
         'hierarchical'      => true,
         'labels'            => $tax_labels,
         'public'            => true,
-        'rewrite'           => array('slug' => $tax_slug),
+        'rewrite'           => array('slug' => str_replace('_', '-', $tax_slug)),
         'show_admin_column' => true,
         'show_in_rest'      => true,
         'show_ui'           => true,
         'query_var'         => true,
     );
  
-    register_taxonomy($tax_slug, array('example'), $tax_args);
+    register_taxonomy($tax_slug, array('example_cpt'), $tax_args);
 
     unset($tax_label);
     unset($tax_labels);

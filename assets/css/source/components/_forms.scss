@@ -154,10 +154,10 @@ select {
 }
 select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='"+ encodecolor($dark_gray) +"' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3875 0.852462C11.3875 0.477462 11.0865 0.166748 10.7232 0.166748L1.42434 0.166748C1.0611 0.166748 0.760132 0.477462 0.760132 0.852462C0.760132 1.0346 0.83278 1.20603 0.957319 1.3346L5.60677 6.1346C5.73131 6.26317 5.89736 6.33817 6.07379 6.33817C6.25022 6.33817 6.41628 6.26317 6.54082 6.1346L11.1903 1.3346C11.3148 1.20603 11.3875 1.0346 11.3875 0.852462Z' fill='%2324323D'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='"+ encodecolor($dark_gray) +"' viewBox='0 0 492 492'%3E%3Cpath d='m484.13 124.99-16.11-16.23a26.72 26.72 0 0 0-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 0 0 0 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 0 0 492 144.1c0-7.2-2.8-14.06-7.87-19.12z'/%3E%3C/svg%3E");
     background-position: calc(100% - 10px) calc(50% + 2px);
     background-repeat: no-repeat;
-    background-size: 12px 8px;
+    background-size: 15px 15px;
     height: auto;
     padding-right: 30px;
 
@@ -577,5 +577,192 @@ textarea {
                 content: '!';
             }
         }
+    }
+}
+
+
+/**
+ * Custom fileupload
+ */
+ .custom-fileupload {
+    $f: &;
+
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+
+    input[type=file] {
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 5;
+    }
+
+    &__input,
+    &__button {
+        pointer-events: none;
+    }
+    &__button {
+        @extend %btn;
+        background: $white;
+        border-color: $black;
+        color: $black;
+    }
+    &__input {
+        color: $medium_gray;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @include mediaMinWidth(xs){
+            margin-left: $gutter;
+        }
+        @include mediaMaxWidth(xs){
+            margin-left: #{$gutter/2};
+        }
+    }
+
+    &:hover {
+        #{$f}__button {
+            @include mediaMinWidth($mobileBreakpoint){
+                box-shadow: 0px 0px 10px rgba($black, 0.2);
+                text-decoration: underline;
+            }
+        }
+    }
+    input[type=file]:focus-visible ~ &__button {
+        box-shadow: $focus_default;
+    }
+}
+
+
+/**
+ * Custom select
+ */
+ .custom-select {
+    $s: &;
+
+    color: $general_color;
+    position: relative;
+
+    &__title {
+        background-color: $white;
+        border: 1px solid $general_borderColor;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        padding: 10px 49px 10px 19px;
+        position: relative;
+        transition: border $global_transition, color $global_transition;
+        width: 100%;
+        z-index: 1;
+        
+        &::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='"+ encodecolor($dark_gray) +"' viewBox='0 0 492 492'%3E%3Cpath d='m484.13 124.99-16.11-16.23a26.72 26.72 0 0 0-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 0 0 0 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 0 0 492 144.1c0-7.2-2.8-14.06-7.87-19.12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: '';
+            display: block;
+            filter: brightness(0);
+            height: 15px;
+            margin-top: 2px;
+            opacity: 0.5;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: filter $global_transition, opacity $global_transition;
+            width: 15px;
+            z-index: 2;
+        }
+    }
+    &__list {
+        background: $white;
+        border: 1px solid $general_borderColor;
+        border-radius: 0 0 5px 5px;
+        border-top: none;
+        left: 0;
+        list-style: none;
+        margin: 0;
+        max-height: 162px;
+        opacity: 0;
+        overflow-y: scroll;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        transition: border $global_transition, opacity $global_transition;
+        visibility: hidden;
+        z-index: 10;
+    }
+    &__item {
+        cursor: pointer;
+        margin: 0;
+        padding: 8px 19px;
+        transition: background $global_transition;
+
+        a {
+            color: $general_color;
+            display: block;
+            text-decoration: none;
+
+            &:hover,
+            &:focus-visible {
+                @include mediaMinWidth($mobileBreakpoint){
+                    color: $general_color;
+                }
+            }
+        }
+
+        &:hover,
+        &:focus-visible {
+            @include mediaMinWidth($mobileBreakpoint){
+                background: $light_gray;
+            }
+        }
+    }
+
+
+    &:hover,
+    &:focus-visible {
+        @include mediaMinWidth($mobileBreakpoint){
+            #{$s}__title {
+                border-color: $medium_gray;
+
+                &::after {
+                    filter: none;
+                    opacity: 1;
+                }
+            }
+            #{$s}__list {
+                border-color: $medium_gray;
+            }
+        }
+    }
+    &.is-active {
+        #{$s}__title {
+            border-bottom-color: transparent !important;
+            border-radius: 5px 5px 0 0;
+            // transition: color $global_transition;
+
+            &::after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+        #{$s}__list {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    + select {
+        display: none !important;
     }
 }

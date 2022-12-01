@@ -5,34 +5,30 @@
  * Form / Custom input[type=file]
  */
     document.addEventListener("DOMContentLoaded", function(){
-        if ( document.getElementsByClassName('form__file').length>0 ){
-            [].forEach.call(document.querySelectorAll('.form__file'), function(file){
+        if ( document.querySelectorAll('input[type=file]').length>0 ){
+            [].forEach.call(document.querySelectorAll('input[type=file]'), function(item){
                 let fileWrapper = document.createElement('label');
-                fileWrapper.htmlFor = file.id;
-                fileWrapper.classList.add('form__file-wrap');
+                fileWrapper.htmlFor = item.id;
+                fileWrapper.classList.add('custom-fileupload');
 
-                file.parentNode.insertBefore(fileWrapper, file);
-                fileWrapper.appendChild(file);
-
-                let fileInput = document.createElement('span');
-                fileInput.type = 'text';
-                fileInput.classList.add('form__file-input');
-                fileInput.classList.add('input');
-                fileInput.classList.add('placeholder');
-                fileInput.innerHTML = 'MAX 6MB';
-                let fileInput_val = fileInput.innerHTML;
-
-                fileWrapper.appendChild(fileInput);
+                item.parentNode.insertBefore(fileWrapper, item);
+                fileWrapper.appendChild(item);
                 
                 let fileButton = document.createElement('span');
-                fileButton.classList.add('form__file-button');
-                fileButton.classList.add('button');
-                fileButton.classList.add('button--file');
+                fileButton.classList.add('custom-fileupload__button');
                 fileButton.innerHTML = 'Choose a file';
 
                 fileWrapper.appendChild(fileButton);
 
-                file.addEventListener('change', function(e){
+                let fileInput = document.createElement('span');
+                fileInput.type = 'text';
+                fileInput.classList.add('custom-fileupload__input');
+                fileInput.innerHTML = 'No file chosen';
+                const fileInput_val = fileInput.innerHTML;
+
+                fileWrapper.appendChild(fileInput);
+
+                item.addEventListener('change', function(e){
                     let file_name = '';
 
                     if ( this.files && this.files.length>1 ){
@@ -49,6 +45,22 @@
                         fileInput.innerHTML = fileInput_val;
                     }
                 });
+            });
+        }
+    });
+
+
+/*
+ * Form / Custom select
+ */
+    document.addEventListener("DOMContentLoaded", function(){
+        if ( document.querySelectorAll('.custom-select--links').length>0 ){
+            [].forEach.call(document.querySelectorAll('.custom-select--links'), function(select){
+                let selectTitle = select.querySelector('.custom-select__title');
+
+                selectTitle.addEventListener('click', function(){
+                    select.classList.toggle('is-active');
+                }, false);
             });
         }
     });

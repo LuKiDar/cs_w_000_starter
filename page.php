@@ -8,18 +8,6 @@
         
         <?php while ( have_posts() ): the_post(); ?>
             <div class="col col--12">
-                <div class="custom-select custom-select--links">
-                    <span class="custom-select__title">Sort By: Newest</span>
-
-                    <ul class="custom-select__list">
-                        <li class="custom-select__item">
-                            <a href="#">Sort By: Newest</a>
-                        </li>
-                        <li class="custom-select__item">
-                            <a href="#">Sort By: Oldest</a>
-                        </li>
-                    </ul>
-                </div>
                 <?php the_content(); ?>
             </div>
         <?php endwhile; ?>

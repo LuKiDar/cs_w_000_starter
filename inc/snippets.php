@@ -16,6 +16,14 @@
 
 
 
+<?php /*** ACF messages***/ ?>
+
+You can manage content of the Newsletter block here: <a href="/wp-admin/admin.php?page=acf-options-newsletter-block" title="">Theme Settings > Newsletter block</a>
+
+The 3 latest posts from the selected blog feed will be shown here.
+
+
+
 <?php /*** CF7 form ***/ ?>
 
 [response]

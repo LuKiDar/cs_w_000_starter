@@ -6,7 +6,7 @@
  */
     document.addEventListener("DOMContentLoaded", function(){
         document.getElementById('toggle').addEventListener('click', function(){
-            document.body.classList.toggle('menu-active');
+            document.body.classList.toggle('is-menu-active');
         });
     });
     

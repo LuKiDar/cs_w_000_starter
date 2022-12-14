@@ -7,7 +7,7 @@
     // Open modal
     function openModal(modalID){
         if ( document.getElementById(modalID) ){
-            document.body.classList.add('modal-active');
+            document.body.classList.add('is-modal-active');
             document.getElementById(modalID).classList.add('is-active');
         }
     }
@@ -16,7 +16,7 @@
     function closeModal(modalID, removeModal=false){
         [].forEach.call(document.querySelectorAll('#'+ modalID +' .modal__close-button'), function(item){
             item.addEventListener('click', function(event){
-                document.body.classList.remove('modal-active');
+                document.body.classList.remove('is-modal-active');
                 document.getElementById(modalID).classList.remove('is-active');
 
                 if ( removeModal ){
@@ -30,7 +30,7 @@
 
         document.getElementById(modalID).addEventListener('click', function(event){
             if ( event.target.id===modalID){
-                document.body.classList.remove('modal-active');
+                document.body.classList.remove('is-modal-active');
                 document.getElementById(modalID).classList.remove('is-active');
                 
                 if ( removeModal ){

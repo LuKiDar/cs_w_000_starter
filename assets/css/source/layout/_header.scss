@@ -84,7 +84,7 @@
             top: 46px;
         }
     }
-    body.menu-active & {
+    body.is-menu-active & {
         #{$h}__menu {
             opacity: 1;
             visibility: visible;
